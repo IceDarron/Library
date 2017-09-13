@@ -2,7 +2,7 @@ package com.iceDarron.data.mysql.dao;
 
 import java.util.List;
 
-import com.iceDarron.data.mysql.pojo.Book;
+import com.iceDarron.data.mysql.po.Book;
 
 public interface IBookDao {
 	

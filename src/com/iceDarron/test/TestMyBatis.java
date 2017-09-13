@@ -4,11 +4,10 @@ import javax.annotation.Resource;
 
 import org.apache.log4j.Logger;
 import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.alibaba.fastjson.JSON;
 import com.iceDarron.core.service.IUserService;
-import com.iceDarron.data.mysql.pojo.User;
+import com.iceDarron.data.mysql.po.User;
 
 @ContextConfiguration(locations = {"classpath:spring-mybatis.xml"})
   

@@ -2,7 +2,7 @@ package com.iceDarron.data.mysql.dao;
 
 import java.util.List;
 
-import com.iceDarron.data.mysql.pojo.User;
+import com.iceDarron.data.mysql.po.User;
 
 public interface IUserDao {
 	int deleteByPrimaryKey(Integer id);

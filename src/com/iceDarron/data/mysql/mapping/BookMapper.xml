@@ -1,34 +1,34 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.iceDarron.data.mysql.dao.IBookDao">
-	<resultMap id="BaseResultMap" type="com.iceDarron.data.mysql.pojo.Book">
-		<id column="C_ID" property="C_ID" jdbcType="VARCHAR" />
-		<result column="C_BOOKID" property="C_BOOKID" jdbcType="VARCHAR" />
-		<result column="C_BOOKNAME" property="C_BOOKNAME" jdbcType="VARCHAR" />
-		<result column="C_AUTHOR" property="C_AUTHOR" jdbcType="VARCHAR" />
-		<result column="C_EDITOR" property="C_EDITOR" jdbcType="VARCHAR" />
-		<result column="C_TRANSLATOR" property="C_TRANSLATOR" jdbcType="VARCHAR" />
-		<result column="C_PUBLISHER" property="C_PUBLISHER" jdbcType="VARCHAR" />
-		<result column="D_PUBLICATIONYEAR" property="D_PUBLICATIONYEAR"
-			jdbcType="TIMESTAMP" />
-		<result column="N_VERSION" property="N_VERSION" jdbcType="INTEGER" />
-		<result column="N_PRINTTIMES" property="N_PRINTTIMES" jdbcType="INTEGER" />
-		<result column="N_PRINTNUMBER" property="N_PRINTNUMBER"
-			jdbcType="INTEGER" />
-		<result column="N_PRICE" property="N_PRICE" jdbcType="DOUBLE" />
-		<result column="C_CATEGORY" property="C_CATEGORY" jdbcType="VARCHAR" />
-		<result column="C_DESCRIPTION" property="C_DESCRIPTION"
-			jdbcType="VARCHAR" />
-	</resultMap>
-	<sql id="Base_Column_List">
-		C_ID, C_BOOKID, C_BOOKNAME, C_AUTHOR, C_EDITOR,
-		C_TRANSLATOR, C_PUBLISHER,
-		D_PUBLICATIONYEAR, N_VERSION, N_PRINTTIMES,
-		N_PRINTNUMBER, N_PRICE,
-		C_CATEGORY, C_DESCRIPTION
-	</sql>
-	<sql id="Base_Insert_List">
-		#{item.C_ID, jdbcType=VARCHAR},
+    <resultMap id="BaseResultMap" type="com.iceDarron.data.mysql.pojo.Book">
+        <id column="C_ID" property="C_ID" jdbcType="VARCHAR"/>
+        <result column="C_BOOKID" property="C_BOOKID" jdbcType="VARCHAR"/>
+        <result column="C_BOOKNAME" property="C_BOOKNAME" jdbcType="VARCHAR"/>
+        <result column="C_AUTHOR" property="C_AUTHOR" jdbcType="VARCHAR"/>
+        <result column="C_EDITOR" property="C_EDITOR" jdbcType="VARCHAR"/>
+        <result column="C_TRANSLATOR" property="C_TRANSLATOR" jdbcType="VARCHAR"/>
+        <result column="C_PUBLISHER" property="C_PUBLISHER" jdbcType="VARCHAR"/>
+        <result column="D_PUBLICATIONYEAR" property="D_PUBLICATIONYEAR"
+                jdbcType="TIMESTAMP"/>
+        <result column="N_VERSION" property="N_VERSION" jdbcType="INTEGER"/>
+        <result column="N_PRINTTIMES" property="N_PRINTTIMES" jdbcType="INTEGER"/>
+        <result column="N_PRINTNUMBER" property="N_PRINTNUMBER"
+                jdbcType="INTEGER"/>
+        <result column="N_PRICE" property="N_PRICE" jdbcType="DOUBLE"/>
+        <result column="C_CATEGORY" property="C_CATEGORY" jdbcType="VARCHAR"/>
+        <result column="C_DESCRIPTION" property="C_DESCRIPTION"
+                jdbcType="VARCHAR"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        C_ID, C_BOOKID, C_BOOKNAME, C_AUTHOR, C_EDITOR,
+              C_TRANSLATOR, C_PUBLISHER,
+              D_PUBLICATIONYEAR, N_VERSION, N_PRINTTIMES,
+              N_PRINTNUMBER, N_PRICE,
+              C_CATEGORY, C_DESCRIPTION
+    </sql>
+    <sql id="Base_Insert_List">
+        #{item.C_ID, jdbcType=VARCHAR},
         #{item.C_BOOKID,
         jdbcType=VARCHAR},
         #{item.C_BOOKNAME, jdbcType=VARCHAR},
@@ -47,56 +47,56 @@
         #{item.C_CATEGORY, jdbcType=VARCHAR},
         #{item.C_DESCRIPTION,
         jdbcType=VARCHAR}
-	</sql>
-	<sql id="Base_Update_List">
-		C_ID = #{item.C_ID, jdbcType=VARCHAR},
-		C_BOOKID = #{item.C_BOOKID, jdbcType=VARCHAR},
-		C_BOOKNAME = #{item.C_BOOKNAME, jdbcType=VARCHAR},
-		C_AUTHOR = #{item.C_AUTHOR, jdbcType=VARCHAR},
-		C_EDITOR = #{item.C_EDITOR, jdbcType=VARCHAR},
-		C_TRANSLATOR = #{item.C_TRANSLATOR, jdbcType=VARCHAR},
-		C_PUBLISHER = #{item.C_PUBLISHER, jdbcType=VARCHAR},
-		D_PUBLICATIONYEAR = #{item.D_PUBLICATIONYEAR, jdbcType=TIMESTAMP},
-		N_VERSION = #{item.N_VERSION, jdbcType=INTEGER},
-		N_PRINTTIMES = #{item.N_PRINTTIMES, jdbcType=INTEGER},
-		N_PRINTNUMBER = #{item.N_PRINTNUMBER, jdbcType=INTEGER},
-		N_PRICE = #{item.N_PRICE, jdbcType=DOUBLE},
-		C_CATEGORY = #{item.C_CATEGORY, jdbcType=VARCHAR},
-		C_DESCRIPTION = #{item.C_DESCRIPTION, jdbcType=VARCHAR}
-	</sql>
-	<select id="getBookAll" resultMap="BaseResultMap">
-		select
-		<include refid="Base_Column_List" />
-		from l_dar_books
-	</select>
-	<insert id="addBook" parameterType="java.util.List">
-		insert into l_dar_books (
-		<include refid="Base_Column_List" />
-		)
-		values
-		<foreach collection="list" item="item" index="index"
-			separator=",">
-			(
-			<include refid="Base_Insert_List" />
-			)
-		</foreach>
-	</insert>
-	<update id="updateBook" parameterType="java.util.List">
-		<foreach collection="list" item="item" index="index"
-			separator=",">
-			update l_dar_books
-			<set>
-				<include refid="Base_Update_List" />
-			</set>
-			where C_ID=#{item.C_ID}
-		</foreach>
-	</update>
-	<delete id="deleteBook" parameterType="java.util.List">
-		delete from l_dar_books
-		where C_ID in
-		<foreach item="item" index="index" collection="list" open="("
-			separator="," close=")">
-			#{item.C_ID}
-		</foreach>
-	</delete>
+    </sql>
+    <sql id="Base_Update_List">
+        C_ID = #{item.C_ID, jdbcType=VARCHAR},
+        C_BOOKID = #{item.C_BOOKID, jdbcType=VARCHAR},
+        C_BOOKNAME = #{item.C_BOOKNAME, jdbcType=VARCHAR},
+        C_AUTHOR = #{item.C_AUTHOR, jdbcType=VARCHAR},
+        C_EDITOR = #{item.C_EDITOR, jdbcType=VARCHAR},
+        C_TRANSLATOR = #{item.C_TRANSLATOR, jdbcType=VARCHAR},
+        C_PUBLISHER = #{item.C_PUBLISHER, jdbcType=VARCHAR},
+        D_PUBLICATIONYEAR = #{item.D_PUBLICATIONYEAR, jdbcType=TIMESTAMP},
+        N_VERSION = #{item.N_VERSION, jdbcType=INTEGER},
+        N_PRINTTIMES = #{item.N_PRINTTIMES, jdbcType=INTEGER},
+        N_PRINTNUMBER = #{item.N_PRINTNUMBER, jdbcType=INTEGER},
+        N_PRICE = #{item.N_PRICE, jdbcType=DOUBLE},
+        C_CATEGORY = #{item.C_CATEGORY, jdbcType=VARCHAR},
+        C_DESCRIPTION = #{item.C_DESCRIPTION, jdbcType=VARCHAR}
+    </sql>
+    <select id="getBookAll" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from l_dar_books
+    </select>
+    <insert id="addBook" parameterType="java.util.List">
+        insert into l_dar_books (
+        <include refid="Base_Column_List"/>
+        )
+        values
+        <foreach collection="list" item="item" index="index"
+                 separator=",">
+            (
+            <include refid="Base_Insert_List"/>
+            )
+        </foreach>
+    </insert>
+    <update id="updateBook" parameterType="java.util.List">
+        <foreach collection="list" item="item" index="index"
+                 separator=",">
+            update l_dar_books
+            <set>
+                <include refid="Base_Update_List"/>
+            </set>
+            where C_ID=#{item.C_ID}
+        </foreach>
+    </update>
+    <delete id="deleteBook" parameterType="java.util.List">
+        delete from l_dar_books
+        where C_ID in
+        <foreach item="item" index="index" collection="list" open="("
+                 separator="," close=")">
+            #{item.C_ID}
+        </foreach>
+    </delete>
 </mapper>

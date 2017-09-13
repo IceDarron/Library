@@ -1,4 +1,4 @@
-package com.iceDarron.data.mysql.pojo;
+package com.iceDarron.data.mysql.po;
 
 public class User {
     private Integer id;

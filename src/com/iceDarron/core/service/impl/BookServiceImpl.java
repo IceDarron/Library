@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.iceDarron.core.service.IBookService;
 import com.iceDarron.data.mysql.dao.IBookDao;
-import com.iceDarron.data.mysql.pojo.Book;
+import com.iceDarron.data.mysql.po.Book;
 
 @Service("bookService")
 public class BookServiceImpl implements IBookService {

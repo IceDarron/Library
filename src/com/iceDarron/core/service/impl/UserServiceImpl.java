@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.iceDarron.core.service.IUserService;
 import com.iceDarron.data.mysql.dao.IUserDao;
-import com.iceDarron.data.mysql.pojo.User;
+import com.iceDarron.data.mysql.po.User;
 
 @Service("userService")
 public class UserServiceImpl implements IUserService {
