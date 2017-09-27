@@ -25,7 +25,8 @@ public class Test {
 //		System.out.println(userDAO.getUser(1).getName());
 
 //		testString();
-        testMap();
+//        testMap();
+
     }
 
 

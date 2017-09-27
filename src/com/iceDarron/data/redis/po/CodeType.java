@@ -1,6 +1,8 @@
 package com.iceDarron.data.redis.po;
 
-public class CodeType {
+import java.io.Serializable;
+
+public class CodeType implements Serializable {
 
     // 代码类型编号
     private String C_ID;
