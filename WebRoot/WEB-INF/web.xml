@@ -9,7 +9,7 @@
 	<!-- Spring和mybatis的配置文件 -->
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
-		<param-value>classpath:spring/base/spring-mybatis.xml</param-value>
+		<param-value>classpath:config/spring-mybatis.xml</param-value>
 	</context-param>
 	<!-- Log4j配置 -->
 	<context-param>
@@ -54,7 +54,7 @@
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
 		<init-param>
 			<param-name>contextConfigLocation</param-name>
-			<param-value>classpath:spring/base/spring-mvc.xml</param-value>
+			<param-value>classpath:config/spring-mvc.xml</param-value>
 		</init-param>
 		<load-on-startup>1</load-on-startup>
 		<async-supported>true</async-supported>
