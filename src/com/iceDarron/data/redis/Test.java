@@ -14,7 +14,7 @@ public class Test {
 
     public static void main(String[] args) {
 //		ApplicationContext ac = new ClassPathXmlApplicationContext(
-//				"classpath:spring/base/spring-redis.xml");
+//				"classpath:spring/base/jedis.xml");
 //		IUserDAO userDAO = (IUserDAO) ac.getBean("userDAO");
 //		User user1 = new User();
 //		user1.setId(1);
