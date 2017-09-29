@@ -105,3 +105,28 @@ org.apache.log4j.TTCCLayout（包含日志产生的时间、线程、类别等�
 24     log4j.logger.org.hibernate.ps.PreparedStatementCache=WARN
 
 25     log4j.logger.org.hibernate=DEBUG
+
+
+------------------------------------------------------------------------------------------------------------------------
+关于idea日志和控制台如何输出日志及乱码问题解决方案
+
+配置log4j需要在web.xml增加两处配置：
+ <!-- Log4j配置 -->
+<context-param>
+    <param-name>log4jConfigLocation</param-name>
+    <param-value>
+        classpath:properties/log4j.properties
+    </param-value>
+</context-param>
+<!-- 加载log4j配置文件 -->
+<listener>
+    <listener-class>org.springframework.web.util.Log4jConfigListener</listener-class>
+</listener>
+并需要注意org.springframework.web.util.Log4jConfigListener要在org.springframework.web.util.IntrospectorCleanupListener之前方可保证读取的配置文件可以不再src下
+
+中文乱码需要修改四个部分：
+1.idea安装目录下的bin/idea64.exe.vmoptions和bin/idea.exe.vmoptions追加-Dfile.encoding=UTF-8
+2.log4j对应的properties文件中需要增加log4j.appender.F.Encoding=utf-8（其中F是自定义的）
+3.idea--》setting--》File encoding--》修改三处编码集为UTF-8
+4.发布服务器修改，edit configuration--》VM options=-Dfile.encoding=UTF-8
+注意大小写，注意所有配置文件后面不要有空格！不要有空格！不要有空格！
