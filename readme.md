@@ -130,3 +130,15 @@ org.apache.log4j.TTCCLayout（包含日志产生的时间、线程、类别等�
 3.idea--》setting--》File encoding--》修改三处编码集为UTF-8
 4.发布服务器修改，edit configuration--》VM options=-Dfile.encoding=UTF-8
 注意大小写，注意所有配置文件后面不要有空格！不要有空格！不要有空格！
+
+------------------------------------------------------------------------------------------------------------------------
+关于解决web.xml中的context-param下的value属性不能写两个xml文件的问题
+
+需要检查每个对应的xml中的配置文件注入：
+<bean id="propertyConfigurer"  
+    class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">  
+    <property name="location" value="classpath:properties/jdbc.properties" />
+    <property name="ignoreUnresolvablePlaceholders" value="true" />
+</bean>  
+
+必须每个配置文件引用的地方都有<property name="ignoreUnresolvablePlaceholders" value="true" />，否则spring容器对占位符只会处理一次
