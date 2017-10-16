@@ -3,7 +3,9 @@ package com.iceDarron.data.mysql.dao;
 import java.util.List;
 
 import com.iceDarron.data.mysql.po.Book;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface IBookDao {
 	
 	/**
