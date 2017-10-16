@@ -27,6 +27,11 @@ public class Test {
 //		testString();
 //        testMap();
 
+//        Jedis jedis = RedisManger.getResource();
+        Jedis jedis = RedisUtil.getJedis();
+        jedis.set("name", "xinxin");//向key-->name中放入了value-->xinxin
+        System.out.println(jedis.get("name"));//执行结果：xinxin
+
     }
 
 
