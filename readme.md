@@ -132,13 +132,30 @@ org.apache.log4j.TTCCLayout（包含日志产生的时间、线程、类别等�
 注意大小写，注意所有配置文件后面不要有空格！不要有空格！不要有空格！
 
 ------------------------------------------------------------------------------------------------------------------------
-关于解决web.xml中的context-param下的value属性不能写两个xml文件的问题
+关于解决配置mysql和redis的问题
 
-需要检查每个对应的xml中的配置文件注入：
-<bean id="propertyConfigurer"  
-    class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">  
-    <property name="location" value="classpath:properties/jdbc.properties" />
-    <property name="ignoreUnresolvablePlaceholders" value="true" />
-</bean>  
+1.web.xml中加载一个总的xml配置文件：
+<!-- Spring和mybatis的配置文件 -->
+<context-param>
+    <param-name>contextConfigLocation</param-name>
+    <param-value>
+        classpath:config/application-top.xml
+    </param-value>
+</context-param>
 
-必须每个配置文件引用的地方都有<property name="ignoreUnresolvablePlaceholders" value="true" />，否则spring容器对占位符只会处理一次
+2.在这个总的xml文件中加载mybatis和jedis的连接池及参数配置
+<!-- 引入配置文件 -->
+<bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+    <property name="locations">
+        <list>
+            <!-- 这里支持多种寻址方式：classpath和file -->
+            <value>classpath:properties/redis.properties</value>
+            <value>classpath:properties/jdbc.properties</value>
+        </list>
+    </property>
+</bean>
+<import resource="jedis.xml"/>
+<import resource="spring-mybatis.xml"/>
+
+3.每个连接池的配置方式无特殊，需要注意的是参数标识的写法，调用的连接池参数类正确，自动扫描包下带有注解的类，通过spring加载类。
+  对应的实体类需要通过注释标注，如Controller，Service， Repository
