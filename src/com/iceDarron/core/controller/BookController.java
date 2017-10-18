@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.iceDarron.core.distribute.WebAPI;
+import com.iceDarron.data.redis.RedisManger;
+import com.iceDarron.data.redis.RedisUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +25,7 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.iceDarron.core.service.IBookService;
 import com.iceDarron.data.mysql.po.Book;
+import redis.clients.jedis.Jedis;
 
 /**
  * @author IceDarron
@@ -36,6 +39,9 @@ public class BookController {
 
     @Autowired
     private IBookService bookService;
+
+    @Autowired
+    private RedisManger redisManger;
 
     /**
      * 获取所有书籍
@@ -114,9 +120,12 @@ public class BookController {
     @ResponseBody
     public String getBookCategory(HttpServletRequest request,
                                   HttpServletResponse response, Model model) {
-        List<Book> bookList = this.bookService.getBookAll();
         response.setCharacterEncoding("utf-8");
         logger.info("获取所有书籍信息");
-        return JSON.toJSONString(bookList);
+
+        Jedis jedis = redisManger.getResource();
+        jedis.set("name", "xinxin111222");
+        System.out.println(jedis.get("name"));
+        return JSON.toJSONString("");
     }
 }
