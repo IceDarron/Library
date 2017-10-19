@@ -1,4 +1,4 @@
-package com.iceDarron.data.redis;
+package com.iceDarron.core.cache;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;

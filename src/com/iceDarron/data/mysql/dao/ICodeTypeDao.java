@@ -1,6 +1,6 @@
-package com.iceDarron.data.redis.dao;
+package com.iceDarron.data.mysql.dao;
 
-import com.iceDarron.data.redis.po.CodeType;
+import com.iceDarron.data.mysql.po.CodeType;
 
 import java.util.List;
 

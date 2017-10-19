@@ -1,4 +1,4 @@
-package com.iceDarron.data.redis.po;
+package com.iceDarron.data.mysql.po;
 
 import java.io.Serializable;
 
