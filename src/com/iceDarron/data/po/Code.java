@@ -1,4 +1,4 @@
-package com.iceDarron.data.mysql.po;
+package com.iceDarron.data.po;
 
 import java.io.Serializable;
 
@@ -14,13 +14,13 @@ public class Code implements Serializable {
     private String C_Name;
 
     // 可否维护
-    private String N_KWH;
+    private String N_IsMaintain;
 
     // 分级信息
     private String C_LevelInfo;
 
     // 是否有效
-    private String N_Valid;
+    private String N_IsValid;
 
     // 显示顺序
     private String N_Order;
@@ -52,12 +52,12 @@ public class Code implements Serializable {
         C_Name = c_Name;
     }
 
-    public String getN_KWH() {
-        return N_KWH;
+    public String getN_IsMaintain() {
+        return N_IsMaintain;
     }
 
-    public void setN_KWH(String n_KWH) {
-        N_KWH = n_KWH;
+    public void setN_IsMaintain(String n_IsMaintain) {
+        N_IsMaintain = n_IsMaintain;
     }
 
     public String getC_LevelInfo() {
@@ -68,12 +68,12 @@ public class Code implements Serializable {
         C_LevelInfo = c_LevelInfo;
     }
 
-    public String getN_Valid() {
-        return N_Valid;
+    public String getN_IsValid() {
+        return N_IsValid;
     }
 
-    public void setN_Valid(String n_Valid) {
-        N_Valid = n_Valid;
+    public void setN_IsValid(String n_IsValid) {
+        N_IsValid = n_IsValid;
     }
 
     public String getN_Order() {

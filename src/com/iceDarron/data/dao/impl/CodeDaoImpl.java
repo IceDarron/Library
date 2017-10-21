@@ -1,11 +1,11 @@
-package com.iceDarron.data.mysql.dao.impl;
+package com.iceDarron.data.dao.impl;
 
-import com.iceDarron.data.mysql.dao.ICodeDao;
-import com.iceDarron.data.mysql.po.Code;
+import com.iceDarron.data.dao.ICodeDao;
+import com.iceDarron.data.po.Code;
 
 import java.util.List;
 
-public class CodeDaoImpl implements ICodeDao{
+public class CodeDaoImpl implements ICodeDao {
 
     @Override
     public List<Code> getAll() {

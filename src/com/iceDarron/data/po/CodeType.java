@@ -1,4 +1,4 @@
-package com.iceDarron.data.mysql.po;
+package com.iceDarron.data.po;
 
 import java.io.Serializable;
 
@@ -11,10 +11,10 @@ public class CodeType implements Serializable {
     private String C_Name;
 
     // 是否有效
-    private String N_Valid;
+    private String N_IsValid;
 
     // 是否可维
-    private String N_SFKWH;
+    private String N_IsMaintain;
 
     public String getC_ID() {
         return C_ID;
@@ -32,19 +32,19 @@ public class CodeType implements Serializable {
         C_Name = c_Name;
     }
 
-    public String getN_Valid() {
-        return N_Valid;
+    public String getN_IsValid() {
+        return N_IsValid;
     }
 
-    public void setN_Valid(String n_Valid) {
-        N_Valid = n_Valid;
+    public void setN_IsValid(String n_IsValid) {
+        N_IsValid = n_IsValid;
     }
 
-    public String getN_SFKWH() {
-        return N_SFKWH;
+    public String getN_IsMaintainH() {
+        return N_IsMaintain;
     }
 
-    public void setN_SFKWH(String n_SFKWH) {
-        N_SFKWH = n_SFKWH;
+    public void setN_IsMaintainH(String n_IsMaintain) {
+        N_IsMaintain = n_IsMaintain;
     }
 }

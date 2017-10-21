@@ -6,8 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.iceDarron.core.service.IBookService;
-import com.iceDarron.data.mysql.dao.IBookDao;
-import com.iceDarron.data.mysql.po.Book;
+import com.iceDarron.data.dao.IBookDao;
+import com.iceDarron.data.po.Book;
 
 @Service("bookService")
 public class BookServiceImpl implements IBookService {

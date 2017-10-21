@@ -2,7 +2,7 @@ package com.iceDarron.core.service;
 
 import java.util.List;
 
-import com.iceDarron.data.mysql.po.Book;
+import com.iceDarron.data.po.Book;
 
 /**
  * @Description [用于图书对象的所有CRUD操作接口]

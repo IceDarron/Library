@@ -1,4 +1,4 @@
-package com.iceDarron.data.mysql.po;
+package com.iceDarron.data.po;
 
 import java.sql.Timestamp;
 

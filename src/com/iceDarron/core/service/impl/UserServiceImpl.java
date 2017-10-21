@@ -6,8 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.iceDarron.core.service.IUserService;
-import com.iceDarron.data.mysql.dao.IUserDao;
-import com.iceDarron.data.mysql.po.User;
+import com.iceDarron.data.dao.IUserDao;
+import com.iceDarron.data.po.User;
 
 @Service("userService")
 public class UserServiceImpl implements IUserService {

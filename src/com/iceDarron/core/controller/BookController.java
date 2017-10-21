@@ -23,7 +23,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.iceDarron.core.service.IBookService;
-import com.iceDarron.data.mysql.po.Book;
+import com.iceDarron.data.po.Book;
 import redis.clients.jedis.Jedis;
 
 /**

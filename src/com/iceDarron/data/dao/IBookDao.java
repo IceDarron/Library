@@ -1,8 +1,8 @@
-package com.iceDarron.data.mysql.dao;
+package com.iceDarron.data.dao;
 
 import java.util.List;
 
-import com.iceDarron.data.mysql.po.Book;
+import com.iceDarron.data.po.Book;
 import org.springframework.stereotype.Repository;
 
 @Repository
