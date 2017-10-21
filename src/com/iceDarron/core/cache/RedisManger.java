@@ -1,7 +1,7 @@
 package com.iceDarron.core.cache;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Component;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
 
@@ -14,7 +14,7 @@ import redis.clients.jedis.JedisPool;
  * 4.新增 先增加缓存，再增加数据库]
  * @since 20171018
  */
-@Repository
+@Component
 public class RedisManger {
 
     @Autowired
