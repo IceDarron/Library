@@ -30,6 +30,8 @@ public class CodeTypeDaoImpl implements ICodeTypeDao {
 
     @Override
     public CodeType getByName(String name) {
+            String values = "";
+            CodeType codeType = new CodeType();
         return null;
     }
 
