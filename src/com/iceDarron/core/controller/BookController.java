@@ -113,6 +113,29 @@ public class BookController {
     }
 
     /**
+     * 通过条件获取书籍
+     */
+    @RequestMapping(value = "/getBookByCondition", method = RequestMethod.GET)
+    @ResponseBody
+    public String getBookByCondition(HttpServletRequest request,
+                                     HttpServletResponse response, Model model) {
+        String str = "";
+        try {
+            str = WebAPI.getBody(request);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        Book book = JSONObject.parseObject(str, Book.class); // 前台传递过来的条件
+
+        List<Book> listBook = new ArrayList<Book>();
+        // 查询符合条件的所有书籍
+
+        response.setCharacterEncoding("utf-8");
+        logger.info("获取符合条件书籍信息");
+        return JSON.toJSONString(listBook);
+    }
+
+    /**
      * 获取所有书籍分类
      */
     @RequestMapping(value = "/getBookCategory", method = RequestMethod.GET)

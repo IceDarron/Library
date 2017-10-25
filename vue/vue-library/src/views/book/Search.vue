@@ -3,6 +3,15 @@
       <div class="top">图书收藏</div>
       <button @click="getBookAll()">获取所有书籍</button>
       <button @click="addBook()">新增书籍</button>
+      <div class="search">
+          <div>书籍名称： <input v-model="bookData.c_BOOKNAME" /></div>
+          <div>作者： <input /></div>
+          <div>出版社：<input /></div>
+          <div>分类：<input /></div>
+      </div>
+      <button @click="getBookByCondition()">搜索书籍</button>
+
+
       <div class="body">
           <div class="row" v-for="(item, i) in books">
               <button class="delete" @click="deleteBook(item)">删除</button>
@@ -123,3 +132,123 @@
       <div class="bottom">IceDarron</div>
   </div>
 </template>
+<script>
+  import axios from 'axios'
+  export default {
+    props: {
+      bookData: {c_BOOKNAME: ''}
+    },
+    name: 'show',
+    data () {
+      return {
+        books: [],
+        isA: -1
+      }
+    },
+    methods: {
+      getBookByCondition (bookData) {
+        axios.get('/Library/getBookByCondition', bookData)
+        .then((response) => {
+          console.log(response.data)
+          this.books = JSON.parse(response.data)
+        })
+        .catch((error) => {
+          console.log(error)
+        })
+      },
+      getBookAll () {
+        axios.get('/Library/book')
+        .then((response) => {
+          console.log(response.data)
+          this.books = JSON.parse(response.data)
+        })
+        .catch((error) => {
+          console.log(error)
+        })
+      },
+      editBook (cur, item) {
+        if (this.isA === cur) {
+          this.isA = -1
+          axios.put('/Library/book/' + item.c_ID, item)
+          .then(function (response) {
+            console.log(response)
+          })
+          .catch(function (error) {
+            console.log(error)
+          })
+        } else {
+          this.isA = cur
+        }
+      },
+      deleteBook (item) {
+        axios.delete('/Library/book/' + item.c_ID, {
+          params: {
+            c_ID: item.c_ID
+          }
+        })
+        .then(function (response) {
+          console.log(response)
+        })
+        .catch(function (error) {
+          console.log(error)
+        })
+      },
+      addBook () {
+        axios.post('/Library/book')
+        .then(function (response) {
+          console.log(response)
+        })
+        .catch(function (error) {
+          console.log(error)
+        })
+      }
+    },
+    computed: {
+    },
+    watch: {
+    }
+  }
+</script>
+<style>
+.top {
+    position: fixed;
+    top: 10px;
+    width: 100%;
+    z-index: 100;
+}
+
+.search {
+    margin: 10px;
+}
+
+.body {
+    margin: 10px;
+}
+
+.bottom {
+    position: fixed;
+    bottom: 10px;
+    width: 100%;
+    z-index: 100;
+}
+
+.row {
+  margin: 20px;
+  width: 500px;
+  height: 300px;
+  position: relative;
+  float:left;
+}
+
+.col {
+}
+
+.inline {
+  display:inline;
+}
+
+.delete {
+  position: relative;;
+  left: -60px;
+}
+</style>
