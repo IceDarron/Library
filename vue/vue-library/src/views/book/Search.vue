@@ -4,10 +4,10 @@
       <button @click="getBookAll()">获取所有书籍</button>
       <button @click="addBook()">新增书籍</button>
       <div class="search">
-          <div>书籍名称： <input v-model="bookData.c_BOOKNAME" /></div>
-          <div>作者： <input /></div>
-          <div>出版社：<input /></div>
-          <div>分类：<input /></div>
+          <div>书籍名称： <input v-model="c_BOOKNAME" /></div>
+          <div>作者： <input v-model="c_AUTHOR" /></div>
+          <div>出版社：<input v-model="c_PUBLISHER" /></div>
+          <div>分类：<input v-model="c_CATEGORY" /></div>
       </div>
       <button @click="getBookByCondition()">搜索书籍</button>
 
@@ -136,7 +136,10 @@
   import axios from 'axios'
   export default {
     props: {
-      bookData: {c_BOOKNAME: ''}
+      c_BOOKNAME: '',
+      c_AUTHOR: '',
+      c_PUBLISHER: '',
+      c_CATEGORY: ''
     },
     name: 'show',
     data () {
@@ -146,8 +149,15 @@
       }
     },
     methods: {
-      getBookByCondition (bookData) {
-        axios.get('/Library/getBookByCondition', bookData)
+      getBookByCondition () {
+        axios.get('/Library/getBookByCondition', {
+          params: {
+            c_BOOKNAME: this.c_BOOKNAME,
+            c_AUTHOR: this.c_AUTHOR,
+            c_PUBLISHER: this.c_PUBLISHER,
+            c_CATEGORY: this.c_CATEGORY
+          }
+        })
         .then((response) => {
           console.log(response.data)
           this.books = JSON.parse(response.data)
