@@ -1,0 +1,2 @@
+Closing WebApplicationContext for namespace 'Library-servlet': startup date [Wed Oct 25 23:07:28 CST 2017]; parent: Root WebApplicationContext
+Closing Root WebApplicationContext: startup date [Wed Oct 25 23:07:27 CST 2017]; root of context hierarchy

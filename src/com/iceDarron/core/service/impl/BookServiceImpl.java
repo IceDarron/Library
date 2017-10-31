@@ -33,4 +33,9 @@ public class BookServiceImpl implements IBookService {
 	public int deleteBook(List<Book> listBook) {
 		return this.bookDao.deleteBook(listBook);
 	}
+
+	@Override
+	public List<Book> getBookByCondition(Book book) {
+		return this.bookDao.getBookByCondition(book);
+	}
 }

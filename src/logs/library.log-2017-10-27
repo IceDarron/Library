@@ -1,0 +1,177 @@
+Root WebApplicationContext: initialization started
+Refreshing Root WebApplicationContext: startup date [Fri Oct 27 22:53:32 CST 2017]; root of context hierarchy
+Loading XML bean definitions from class path resource [config/application-top.xml]
+Loading XML bean definitions from class path resource [config/jedis.xml]
+Loading XML bean definitions from class path resource [config/spring-mybatis.xml]
+Loading properties file from class path resource [properties/redis.properties]
+Loading properties file from class path resource [properties/jdbc.properties]
+JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+Root WebApplicationContext: initialization completed in 1279 ms
+FrameworkServlet 'Library': initialization started
+Refreshing WebApplicationContext for namespace 'Library-servlet': startup date [Fri Oct 27 22:53:33 CST 2017]; parent: Root WebApplicationContext
+Loading XML bean definitions from class path resource [config/spring-mvc.xml]
+JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+Mapped URL path [/book] onto handler 'bookController'
+Mapped URL path [/book.*] onto handler 'bookController'
+Mapped URL path [/book/] onto handler 'bookController'
+Mapped URL path [/getBookByCondition] onto handler 'bookController'
+Mapped URL path [/getBookByCondition.*] onto handler 'bookController'
+Mapped URL path [/getBookByCondition/] onto handler 'bookController'
+Mapped URL path [/book/{c_ID}] onto handler 'bookController'
+Mapped URL path [/book/{c_ID}.*] onto handler 'bookController'
+Mapped URL path [/book/{c_ID}/] onto handler 'bookController'
+Mapped URL path [/getBookCategory] onto handler 'bookController'
+Mapped URL path [/getBookCategory.*] onto handler 'bookController'
+Mapped URL path [/getBookCategory/] onto handler 'bookController'
+Mapped URL path [/book/{C_ID}] onto handler 'bookController'
+Mapped URL path [/book/{C_ID}.*] onto handler 'bookController'
+Mapped URL path [/book/{C_ID}/] onto handler 'bookController'
+Mapped URL path [/user/userAll] onto handler 'userController'
+Mapped URL path [/user/userAll.*] onto handler 'userController'
+Mapped URL path [/user/userAll/] onto handler 'userController'
+Mapped URL path [/user/myJsp] onto handler 'userController'
+Mapped URL path [/user/myJsp.*] onto handler 'userController'
+Mapped URL path [/user/myJsp/] onto handler 'userController'
+Mapped URL path [/user/saveMyJsp] onto handler 'userController'
+Mapped URL path [/user/saveMyJsp.*] onto handler 'userController'
+Mapped URL path [/user/saveMyJsp/] onto handler 'userController'
+Mapped URL path [/user/showUser] onto handler 'userController'
+Mapped URL path [/user/showUser.*] onto handler 'userController'
+Mapped URL path [/user/showUser/] onto handler 'userController'
+FrameworkServlet 'Library': initialization completed in 407 ms
+获取所有书籍信息
+Closing WebApplicationContext for namespace 'Library-servlet': startup date [Fri Oct 27 22:53:33 CST 2017]; parent: Root WebApplicationContext
+Closing Root WebApplicationContext: startup date [Fri Oct 27 22:53:32 CST 2017]; root of context hierarchy
+Root WebApplicationContext: initialization started
+Refreshing Root WebApplicationContext: startup date [Fri Oct 27 23:27:11 CST 2017]; root of context hierarchy
+Loading XML bean definitions from class path resource [config/application-top.xml]
+Loading XML bean definitions from class path resource [config/jedis.xml]
+Loading XML bean definitions from class path resource [config/spring-mybatis.xml]
+Loading properties file from class path resource [properties/redis.properties]
+Loading properties file from class path resource [properties/jdbc.properties]
+JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+Root WebApplicationContext: initialization completed in 1313 ms
+FrameworkServlet 'Library': initialization started
+Refreshing WebApplicationContext for namespace 'Library-servlet': startup date [Fri Oct 27 23:27:13 CST 2017]; parent: Root WebApplicationContext
+Loading XML bean definitions from class path resource [config/spring-mvc.xml]
+JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+Mapped URL path [/getBookByCondition] onto handler 'bookController'
+Mapped URL path [/getBookByCondition.*] onto handler 'bookController'
+Mapped URL path [/getBookByCondition/] onto handler 'bookController'
+Mapped URL path [/book/{c_ID}] onto handler 'bookController'
+Mapped URL path [/book/{c_ID}.*] onto handler 'bookController'
+Mapped URL path [/book/{c_ID}/] onto handler 'bookController'
+Mapped URL path [/getBookCategory] onto handler 'bookController'
+Mapped URL path [/getBookCategory.*] onto handler 'bookController'
+Mapped URL path [/getBookCategory/] onto handler 'bookController'
+Mapped URL path [/book/{C_ID}] onto handler 'bookController'
+Mapped URL path [/book/{C_ID}.*] onto handler 'bookController'
+Mapped URL path [/book/{C_ID}/] onto handler 'bookController'
+Mapped URL path [/book] onto handler 'bookController'
+Mapped URL path [/book.*] onto handler 'bookController'
+Mapped URL path [/book/] onto handler 'bookController'
+Mapped URL path [/user/showUser] onto handler 'userController'
+Mapped URL path [/user/showUser.*] onto handler 'userController'
+Mapped URL path [/user/showUser/] onto handler 'userController'
+Mapped URL path [/user/userAll] onto handler 'userController'
+Mapped URL path [/user/userAll.*] onto handler 'userController'
+Mapped URL path [/user/userAll/] onto handler 'userController'
+Mapped URL path [/user/myJsp] onto handler 'userController'
+Mapped URL path [/user/myJsp.*] onto handler 'userController'
+Mapped URL path [/user/myJsp/] onto handler 'userController'
+Mapped URL path [/user/saveMyJsp] onto handler 'userController'
+Mapped URL path [/user/saveMyJsp.*] onto handler 'userController'
+Mapped URL path [/user/saveMyJsp/] onto handler 'userController'
+FrameworkServlet 'Library': initialization completed in 481 ms
+获取所有书籍信息
+No mapping found for HTTP request with URI [/Library/getBookByCondition/2323] in DispatcherServlet with name 'Library'
+获取所有书籍信息
+No mapping found for HTTP request with URI [/Library/getBookByCondition/2323] in DispatcherServlet with name 'Library'
+Closing WebApplicationContext for namespace 'Library-servlet': startup date [Fri Oct 27 23:27:13 CST 2017]; parent: Root WebApplicationContext
+Closing Root WebApplicationContext: startup date [Fri Oct 27 23:27:11 CST 2017]; root of context hierarchy
+Root WebApplicationContext: initialization started
+Refreshing Root WebApplicationContext: startup date [Fri Oct 27 23:43:46 CST 2017]; root of context hierarchy
+Loading XML bean definitions from class path resource [config/application-top.xml]
+Loading XML bean definitions from class path resource [config/jedis.xml]
+Loading XML bean definitions from class path resource [config/spring-mybatis.xml]
+Loading properties file from class path resource [properties/redis.properties]
+Loading properties file from class path resource [properties/jdbc.properties]
+JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+Root WebApplicationContext: initialization completed in 974 ms
+FrameworkServlet 'Library': initialization started
+Refreshing WebApplicationContext for namespace 'Library-servlet': startup date [Fri Oct 27 23:43:47 CST 2017]; parent: Root WebApplicationContext
+Loading XML bean definitions from class path resource [config/spring-mvc.xml]
+JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+Mapped URL path [/getBookByCondition] onto handler 'bookController'
+Mapped URL path [/getBookByCondition.*] onto handler 'bookController'
+Mapped URL path [/getBookByCondition/] onto handler 'bookController'
+Mapped URL path [/book/{c_ID}] onto handler 'bookController'
+Mapped URL path [/book/{c_ID}.*] onto handler 'bookController'
+Mapped URL path [/book/{c_ID}/] onto handler 'bookController'
+Mapped URL path [/book] onto handler 'bookController'
+Mapped URL path [/book.*] onto handler 'bookController'
+Mapped URL path [/book/] onto handler 'bookController'
+Mapped URL path [/getBookCategory] onto handler 'bookController'
+Mapped URL path [/getBookCategory.*] onto handler 'bookController'
+Mapped URL path [/getBookCategory/] onto handler 'bookController'
+Mapped URL path [/book/{C_ID}] onto handler 'bookController'
+Mapped URL path [/book/{C_ID}.*] onto handler 'bookController'
+Mapped URL path [/book/{C_ID}/] onto handler 'bookController'
+Mapped URL path [/user/myJsp] onto handler 'userController'
+Mapped URL path [/user/myJsp.*] onto handler 'userController'
+Mapped URL path [/user/myJsp/] onto handler 'userController'
+Mapped URL path [/user/saveMyJsp] onto handler 'userController'
+Mapped URL path [/user/saveMyJsp.*] onto handler 'userController'
+Mapped URL path [/user/saveMyJsp/] onto handler 'userController'
+Mapped URL path [/user/userAll] onto handler 'userController'
+Mapped URL path [/user/userAll.*] onto handler 'userController'
+Mapped URL path [/user/userAll/] onto handler 'userController'
+Mapped URL path [/user/showUser] onto handler 'userController'
+Mapped URL path [/user/showUser.*] onto handler 'userController'
+Mapped URL path [/user/showUser/] onto handler 'userController'
+FrameworkServlet 'Library': initialization completed in 410 ms
+Closing WebApplicationContext for namespace 'Library-servlet': startup date [Fri Oct 27 23:43:47 CST 2017]; parent: Root WebApplicationContext
+Closing Root WebApplicationContext: startup date [Fri Oct 27 23:43:46 CST 2017]; root of context hierarchy
+Root WebApplicationContext: initialization started
+Refreshing Root WebApplicationContext: startup date [Fri Oct 27 23:44:33 CST 2017]; root of context hierarchy
+Loading XML bean definitions from class path resource [config/application-top.xml]
+Loading XML bean definitions from class path resource [config/jedis.xml]
+Loading XML bean definitions from class path resource [config/spring-mybatis.xml]
+Loading properties file from class path resource [properties/redis.properties]
+Loading properties file from class path resource [properties/jdbc.properties]
+JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+Root WebApplicationContext: initialization completed in 1080 ms
+FrameworkServlet 'Library': initialization started
+Refreshing WebApplicationContext for namespace 'Library-servlet': startup date [Fri Oct 27 23:44:34 CST 2017]; parent: Root WebApplicationContext
+Loading XML bean definitions from class path resource [config/spring-mvc.xml]
+JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+Mapped URL path [/book] onto handler 'bookController'
+Mapped URL path [/book.*] onto handler 'bookController'
+Mapped URL path [/book/] onto handler 'bookController'
+Mapped URL path [/book/{c_ID}] onto handler 'bookController'
+Mapped URL path [/book/{c_ID}.*] onto handler 'bookController'
+Mapped URL path [/book/{c_ID}/] onto handler 'bookController'
+Mapped URL path [/book/{C_ID}] onto handler 'bookController'
+Mapped URL path [/book/{C_ID}.*] onto handler 'bookController'
+Mapped URL path [/book/{C_ID}/] onto handler 'bookController'
+Mapped URL path [/getBookCategory] onto handler 'bookController'
+Mapped URL path [/getBookCategory.*] onto handler 'bookController'
+Mapped URL path [/getBookCategory/] onto handler 'bookController'
+Mapped URL path [/getBookByCondition] onto handler 'bookController'
+Mapped URL path [/getBookByCondition.*] onto handler 'bookController'
+Mapped URL path [/getBookByCondition/] onto handler 'bookController'
+Mapped URL path [/user/saveMyJsp] onto handler 'userController'
+Mapped URL path [/user/saveMyJsp.*] onto handler 'userController'
+Mapped URL path [/user/saveMyJsp/] onto handler 'userController'
+Mapped URL path [/user/showUser] onto handler 'userController'
+Mapped URL path [/user/showUser.*] onto handler 'userController'
+Mapped URL path [/user/showUser/] onto handler 'userController'
+Mapped URL path [/user/userAll] onto handler 'userController'
+Mapped URL path [/user/userAll.*] onto handler 'userController'
+Mapped URL path [/user/userAll/] onto handler 'userController'
+Mapped URL path [/user/myJsp] onto handler 'userController'
+Mapped URL path [/user/myJsp.*] onto handler 'userController'
+Mapped URL path [/user/myJsp/] onto handler 'userController'
+FrameworkServlet 'Library': initialization completed in 370 ms
+Closing WebApplicationContext for namespace 'Library-servlet': startup date [Fri Oct 27 23:44:34 CST 2017]; parent: Root WebApplicationContext
+Closing Root WebApplicationContext: startup date [Fri Oct 27 23:44:33 CST 2017]; root of context hierarchy

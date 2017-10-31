@@ -119,16 +119,19 @@ public class BookController {
     @ResponseBody
     public String getBookByCondition(HttpServletRequest request,
                                      HttpServletResponse response, Model model) {
-        String str = "";
-        try {
-            str = WebAPI.getBody(request);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        Book book = JSONObject.parseObject(str, Book.class); // 前台传递过来的条件
+        String c_BOOKNAME = request.getParameter("c_BOOKNAME");
+        String c_AUTHOR = request.getParameter("c_AUTHOR");
+        String c_PUBLISHER = request.getParameter("c_PUBLISHER");
+        String c_CATEGORY = request.getParameter("c_CATEGORY");
 
-        List<Book> listBook = new ArrayList<Book>();
+        Book book = new Book();
+        book.setC_BOOKNAME(c_BOOKNAME);
+        book.setC_AUTHOR(c_AUTHOR);
+        book.setC_PUBLISHER(c_PUBLISHER);
+        book.setC_CATEGORY(c_CATEGORY);
+
         // 查询符合条件的所有书籍
+        List<Book> listBook = this.bookService.getBookByCondition(book);
 
         response.setCharacterEncoding("utf-8");
         logger.info("获取符合条件书籍信息");

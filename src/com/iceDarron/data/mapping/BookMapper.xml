@@ -99,4 +99,25 @@
             #{item.C_ID}
         </foreach>
     </delete>
+
+    <select id="getBookByCondition" parameterType="com.iceDarron.data.po.Book" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from l_dar_books
+        <where>
+            1 = 1
+            <if test="C_BOOKNAME != null and C_BOOKNAME != ''">
+                and C_BOOKNAME = #{C_BOOKNAME}
+            </if>
+            <if test="c_AUTHOR != null and c_AUTHOR != ''">
+                and c_AUTHOR = #{c_AUTHOR}
+            </if>
+            <if test="c_PUBLISHER != null and c_PUBLISHER != ''">
+                and c_PUBLISHER = #{c_PUBLISHER}
+            </if>
+            <if test="c_CATEGORY != null and c_CATEGORY != ''">
+                and c_CATEGORY = #{c_CATEGORY}
+            </if>
+        </where>
+    </select>
 </mapper>

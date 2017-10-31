@@ -38,4 +38,12 @@ public interface IBookService {
 	 * @return 返回执行数量
 	 */
 	public int deleteBook(List<Book> listBook);
+
+	/**
+	 * 查询符合条件的所有book对象数据
+	 * @param book 查询条件
+	 * @return 返回booklist
+	 */
+	public List<Book> getBookByCondition(Book book);
+
 }
