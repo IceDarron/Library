@@ -1,9 +1,6 @@
 package com.iceDarron.core.controller;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -11,6 +8,7 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.iceDarron.core.distribute.WebAPI;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -63,7 +61,7 @@ public class UserController {
 		Map<String, String[]> params = request.getParameterMap();
 		String str = "";
 		try {
-			str = getBody(request);
+			str = WebAPI.getBody(request);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -84,37 +82,5 @@ public class UserController {
 	// http://localhost:8081/springMVC/user/showUser?id=1
 	
 	
-	public static String getBody(HttpServletRequest request) throws IOException {
 
-	    String body = null;
-	    StringBuilder stringBuilder = new StringBuilder();
-	    BufferedReader bufferedReader = null;
-
-	    try {
-	        InputStream inputStream = request.getInputStream();
-	        if (inputStream != null) {
-	            bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
-	            char[] charBuffer = new char[128];
-	            int bytesRead = -1;
-	            while ((bytesRead = bufferedReader.read(charBuffer)) > 0) {
-	                stringBuilder.append(charBuffer, 0, bytesRead);
-	            }
-	        } else {
-	            stringBuilder.append("");
-	        }
-	    } catch (IOException ex) {
-	        throw ex;
-	    } finally {
-	        if (bufferedReader != null) {
-	            try {
-	                bufferedReader.close();
-	            } catch (IOException ex) {
-	                throw ex;
-	            }
-	        }
-	    }
-
-	    body = stringBuilder.toString();
-	    return body;
-	}
 }
