@@ -14,7 +14,6 @@
 
       <div class="body">
           <div class="row" v-for="(item, i) in books">
-              <button class="delete" @click="deleteBook(item)">删除</button>
               <!-- 0 -->
               <!-- <div class="col">主键：<span>{{item.c_ID}}</span></div> -->
               <!-- 1 -->
@@ -127,6 +126,7 @@
                   <input v-model="item.c_DESCRIPTION" v-show="isA === (i + '-' + 13)">
                 </div>
               </div>
+              <button class="delete" @click="deleteBook(item)">删除</button>
           </div>
       </div>
       <div class="bottom">IceDarron</div>
@@ -251,6 +251,7 @@
 }
 
 .col {
+
 }
 
 .inline {

@@ -107,16 +107,16 @@
         <where>
             1 = 1
             <if test="C_BOOKNAME != null and C_BOOKNAME != ''">
-                and C_BOOKNAME = #{C_BOOKNAME}
+                AND C_BOOKNAME LIKE CONCAT('%',#{C_BOOKNAME},'%')
             </if>
             <if test="c_AUTHOR != null and c_AUTHOR != ''">
-                and c_AUTHOR = #{c_AUTHOR}
+                AND c_AUTHOR LIKE CONCAT('%',#{c_AUTHOR},'%')
             </if>
             <if test="c_PUBLISHER != null and c_PUBLISHER != ''">
-                and c_PUBLISHER = #{c_PUBLISHER}
+                AND c_PUBLISHER LIKE CONCAT('%',#{c_PUBLISHER},'%')
             </if>
             <if test="c_CATEGORY != null and c_CATEGORY != ''">
-                and c_CATEGORY = #{c_CATEGORY}
+                AND c_CATEGORY LIKE CONCAT('%',#{c_CATEGORY},'%')
             </if>
         </where>
     </select>
