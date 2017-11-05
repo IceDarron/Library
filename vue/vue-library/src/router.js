@@ -1,6 +1,7 @@
 import home from './views/Home'
 import book from './views/book/Book'
 import search from './views/book/Search'
+import classifyBook from './views/book/ClassifyBook'
 
 export default [{
   path: '/',
@@ -20,4 +21,9 @@ export default [{
   path: '/search',
   name: 'search',
   component: search
+},
+{
+  path: '/classifyBook',
+  name: 'classifyBook',
+  component: classifyBook
 }]

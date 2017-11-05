@@ -1,6 +1,6 @@
-package com.iceDarron.core.utils;
+package com.iceDarron.utils;
 
-public class ConstantUtils {
+public interface ConstantUtils {
 
     /**
      * 缓存静态变量

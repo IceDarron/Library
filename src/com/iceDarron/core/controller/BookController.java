@@ -146,7 +146,7 @@ public class BookController {
     public String getBookCategory(HttpServletRequest request,
                                   HttpServletResponse response, Model model) {
         response.setCharacterEncoding("utf-8");
-        logger.info("获取所有书籍信息");
+        logger.info("获取所有分类及分类下书籍数量");
 
         Jedis jedis = redisManger.getResource();
         jedis.set("name", "xinxin111222");

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.iceDarron.data.dao.ICodeTypeDao">
+    <resultMap id="BaseResultMap" type="com.iceDarron.data.po.CodeType">
+        <id column="C_ID" property="C_ID" jdbcType="VARCHAR"/>
+        <result column="C_Name" property="C_Name" jdbcType="VARCHAR"/>
+        <result column="C_IsValid" property="C_IsValid" jdbcType="VARCHAR"/>
+        <result column="C_IsMaintain" property="C_IsMaintain" jdbcType="VARCHAR"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        C_ID, C_Name, C_IsValid, C_IsMaintain
+    </sql>
+    <sql id="Base_Insert_List">
+        #{item.C_ID, jdbcType=VARCHAR},
+        #{item.C_Name,  jdbcType=VARCHAR},
+        #{item.C_IsValid, jdbcType=VARCHAR},
+        #{item.C_IsMaintain, jdbcType=VARCHAR}
+    </sql>
+    <sql id="Base_Update_List">
+        C_ID = #{item.C_ID, jdbcType=VARCHAR},
+        C_Name = #{item.C_Name, jdbcType=VARCHAR},
+        C_IsValid = #{item.C_IsValid, jdbcType=VARCHAR},
+        C_IsMaintain = #{item.C_IsMaintain, jdbcType=VARCHAR}
+    </sql>
+    <select id="getAll" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from L_DAR_CodeType
+    </select>
+    <insert id="add" parameterType="java.util.List">
+        insert into L_DAR_CodeType (
+        <include refid="Base_Column_List"/>
+        )
+        values
+        <foreach collection="list" item="item" index="index"
+                 separator=",">
+            (
+            <include refid="Base_Insert_List"/>
+            )
+        </foreach>
+    </insert>
+    <update id="update" parameterType="java.util.List">
+        <foreach collection="list" item="item" index="index"
+                 separator=",">
+            update L_DAR_CodeType
+            <set>
+                <include refid="Base_Update_List"/>
+            </set>
+            where C_ID=#{item.C_ID}
+        </foreach>
+    </update>
+    <delete id="delete" parameterType="java.util.List">
+        delete from L_DAR_CodeType
+        where C_ID in
+        <foreach item="item" index="index" collection="list" open="("
+                 separator="," close=")">
+            #{item.C_ID}
+        </foreach>
+    </delete>
+
+    <select id="getCondition" parameterType="com.iceDarron.data.po.CodeType" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from L_DAR_CodeType
+        <where>
+            1 = 1
+            <if test="C_ID != null and C_ID != ''">
+                AND C_ID LIKE CONCAT('%',#{C_ID},'%')
+            </if>
+            <if test="C_Name != null and C_Name != ''">
+                AND C_Name LIKE CONCAT('%',#{C_Name},'%')
+            </if>
+            <if test="C_IsValid != null and C_IsValid != ''">
+                AND C_IsValid LIKE CONCAT('%',#{C_IsValid},'%')
+            </if>
+            <if test="C_IsMaintain != null and C_IsMaintain != ''">
+                AND C_IsMaintain LIKE CONCAT('%',#{C_IsMaintain},'%')
+            </if>
+        </where>
+    </select>
+</mapper>

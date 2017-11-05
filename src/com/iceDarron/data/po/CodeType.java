@@ -11,10 +11,10 @@ public class CodeType implements Serializable {
     private String C_Name;
 
     // 是否有效
-    private String N_IsValid;
+    private String C_IsValid;
 
     // 是否可维
-    private String N_IsMaintain;
+    private String C_IsMaintain;
 
     public String getC_ID() {
         return C_ID;
@@ -32,19 +32,19 @@ public class CodeType implements Serializable {
         C_Name = c_Name;
     }
 
-    public String getN_IsValid() {
-        return N_IsValid;
+    public String getC_IsValid() {
+        return C_IsValid;
     }
 
-    public void setN_IsValid(String n_IsValid) {
-        N_IsValid = n_IsValid;
+    public void setC_IsValid(String c_IsValid) {
+        C_IsValid = c_IsValid;
     }
 
-    public String getN_IsMaintainH() {
-        return N_IsMaintain;
+    public String getC_IsMaintain() {
+        return C_IsValid;
     }
 
-    public void setN_IsMaintainH(String n_IsMaintain) {
-        N_IsMaintain = n_IsMaintain;
+    public void setC_IsMaintain(String c_IsMaintain) {
+        C_IsValid = c_IsMaintain;
     }
 }

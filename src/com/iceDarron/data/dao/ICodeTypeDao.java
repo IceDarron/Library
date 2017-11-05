@@ -1,6 +1,7 @@
 package com.iceDarron.data.dao;
 
 import com.iceDarron.data.po.CodeType;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
@@ -9,6 +10,7 @@ import java.util.List;
  * @Description [代码类型表]
  * @since 20171018
  */
+@Repository
 public interface ICodeTypeDao {
 
     /**

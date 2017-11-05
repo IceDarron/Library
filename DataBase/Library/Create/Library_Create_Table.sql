@@ -8,8 +8,8 @@ create table library.L_DAR_CodeType
 (
     C_ID                 varchar(50)                          NOT NULL     comment '代码类型编号',
     C_Name               varchar(300)                         NOT NULL     comment '代码类型名称',
-    N_IsValid              varchar(32)         default '1'          NOT NULL     comment '是否有效',
-    N_IsMaintain            varchar(32)         default '2'          NOT NULL     comment '是否可维护',
+    C_IsValid              varchar(32)         default '1'          NOT NULL     comment '是否有效',
+    C_IsMaintain            varchar(32)         default '2'          NOT NULL     comment '是否可维护',
 constraint PK_Aty_CodeType primary key( C_ID )
 ) comment = '代码类型表' ;
 
