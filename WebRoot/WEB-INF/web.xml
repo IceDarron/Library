@@ -72,13 +72,13 @@
     </servlet-mapping>
 
     <servlet>
-        　　<servlet-name>redis-cache</servlet-name>
-        　　<servlet-class>com.iceDarron.core.cache.InitCache</servlet-class>
-        　　<load-on-startup>5</load-on-startup>
+        <servlet-name>redis-cache</servlet-name>
+        <servlet-class>com.iceDarron.core.cache.InitCache</servlet-class>
+        <load-on-startup>5</load-on-startup>
     </servlet>
     <servlet-mapping>
-        　　<servlet-name>redis-cache</servlet-name>
-        　　<url-pattern>/redis-cache</url-pattern>
+        <servlet-name>redis-cache</servlet-name>
+        <url-pattern>/redis-cache</url-pattern>
     </servlet-mapping>
 
 
