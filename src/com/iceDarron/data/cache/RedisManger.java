@@ -1,4 +1,4 @@
-package com.iceDarron.core.cache;
+package com.iceDarron.data.cache;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -50,4 +50,9 @@ public class RedisManger {
             jedisPool.returnResource(jedis);
         }
     }
+
+    /**
+     * 获取码表
+     */
+
 }

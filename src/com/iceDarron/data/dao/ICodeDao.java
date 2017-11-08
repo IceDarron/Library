@@ -20,7 +20,7 @@ public interface ICodeDao {
     /**
      * 通过代码类型获得指定代码
      */
-    public Code getByPid(String pid);
+    public List<Code> getByPid(String pid);
 
     /**
      * 通过代码获得指定代码

@@ -1,4 +1,4 @@
-package com.iceDarron.core.cache;
+package com.iceDarron.data.cache;
 
 import redis.clients.jedis.Jedis;
 

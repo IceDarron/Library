@@ -9,7 +9,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.iceDarron.core.distribute.WebAPI;
-import com.iceDarron.core.cache.RedisManger;
+import com.iceDarron.data.cache.RedisManger;
+import com.iceDarron.data.dao.ICodeDao;
+import com.iceDarron.data.po.Code;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,6 +43,9 @@ public class BookController {
 
     @Autowired
     private RedisManger redisManger;
+
+    @Autowired
+    private ICodeDao iCodeDao;
 
     /**
      * 获取所有书籍
@@ -141,16 +146,13 @@ public class BookController {
     /**
      * 获取所有书籍分类
      */
-    @RequestMapping(value = "/getBookCategory", method = RequestMethod.GET)
+    @RequestMapping(value = "/getBookClassification", method = RequestMethod.GET)
     @ResponseBody
     public String getBookCategory(HttpServletRequest request,
                                   HttpServletResponse response, Model model) {
         response.setCharacterEncoding("utf-8");
         logger.info("获取所有分类及分类下书籍数量");
-
-        Jedis jedis = redisManger.getResource();
-        jedis.set("name", "xinxin111222");
-        System.out.println(jedis.get("name"));
-        return JSON.toJSONString("");
+        List<Code> list = iCodeDao.getByPid("20000");
+        return JSON.toJSONString(list);
     }
 }

@@ -10,4 +10,7 @@ public interface ConstantUtils {
 
     // codeType 代码类型
     public final static String HKEY_CODE_TYPE = "HKEY_CODE_TYPE";
+
+    // code 代码
+    public final static String HKEY_CODE = "HKEY_CODE";
 }

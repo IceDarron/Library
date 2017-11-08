@@ -73,7 +73,7 @@
 
     <servlet>
         <servlet-name>redis-cache</servlet-name>
-        <servlet-class>com.iceDarron.core.cache.InitCache</servlet-class>
+        <servlet-class>com.iceDarron.data.cache.InitCache</servlet-class>
         <load-on-startup>5</load-on-startup>
     </servlet>
     <servlet-mapping>

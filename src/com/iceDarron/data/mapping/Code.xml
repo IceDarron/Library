@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.iceDarron.data.dao.ICodeDao">
+    <resultMap id="BaseResultMap" type="com.iceDarron.data.po.Code">
+        <id column="C_PID" property="C_PID" jdbcType="VARCHAR"/>
+        <result column="C_Code" property="C_Code" jdbcType="VARCHAR"/>
+        <result column="C_Name" property="C_Name" jdbcType="VARCHAR"/>
+        <result column="C_IsMaintain" property="C_IsMaintain" jdbcType="VARCHAR"/>
+        <result column="C_LevelInfo" property="C_LevelInfo" jdbcType="VARCHAR"/>
+        <result column="C_IsValid" property="C_IsValid" jdbcType="VARCHAR"/>
+        <result column="C_Order" property="C_Order" jdbcType="VARCHAR"/>
+        <result column="C_Dmjp" property="C_Dmjp" jdbcType="VARCHAR"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        C_PID, C_Code, C_Name, C_IsMaintain, C_LevelInfo, C_IsValid, C_Order, C_Dmjp
+    </sql>
+    <sql id="Base_Insert_List">
+        #{item.C_PID, jdbcType=VARCHAR},
+        #{item.C_Code,  jdbcType=VARCHAR},
+        #{item.C_Name, jdbcType=VARCHAR},
+        #{item.C_IsMaintain, jdbcType=VARCHAR}
+        #{item.C_LevelInfo, jdbcType=VARCHAR}
+        #{item.C_IsValid, jdbcType=VARCHAR}
+        #{item.C_Order, jdbcType=VARCHAR}
+        #{item.C_Dmjp, jdbcType=VARCHAR}
+    </sql>
+    <sql id="Base_Update_List">
+        C_PID = #{item.C_PID, jdbcType=VARCHAR},
+        C_Code = #{item.C_Code, jdbcType=VARCHAR},
+        C_Name = #{item.C_Name, jdbcType=VARCHAR},
+        C_IsMaintain = #{item.C_IsMaintain, jdbcType=VARCHAR}
+        C_LevelInfo = #{item.C_LevelInfo, jdbcType=VARCHAR}
+        C_IsValid = #{item.C_IsValid, jdbcType=VARCHAR}
+        C_Order = #{item.C_Order, jdbcType=VARCHAR}
+        C_Dmjp = #{item.C_Dmjp, jdbcType=VARCHAR}
+    </sql>
+    <select id="getAll" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from L_DAR_Code
+    </select>
+    <select id="getByPid" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from L_DAR_Code
+        where C_PID = #{pid}
+    </select>
+
+
+
+
+    <insert id="add" parameterType="java.util.List">
+        insert into L_DAR_Code (
+        <include refid="Base_Column_List"/>
+        )
+        values
+        <foreach collection="list" item="item" index="index"
+                 separator=",">
+            (
+            <include refid="Base_Insert_List"/>
+            )
+        </foreach>
+    </insert>
+    <update id="update" parameterType="java.util.List">
+        <foreach collection="list" item="item" index="index"
+                 separator=",">
+            update L_DAR_Code
+            <set>
+                <include refid="Base_Update_List"/>
+            </set>
+            where C_ID=#{item.C_ID}
+        </foreach>
+    </update>
+    <delete id="delete" parameterType="java.util.List">
+        delete from L_DAR_Code
+        where C_ID in
+        <foreach item="item" index="index" collection="list" open="("
+                 separator="," close=")">
+            #{item.C_ID}
+        </foreach>
+    </delete>
+
+
+</mapper>

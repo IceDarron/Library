@@ -14,16 +14,16 @@ public class Code implements Serializable {
     private String C_Name;
 
     // 可否维护
-    private String N_IsMaintain;
+    private String C_IsMaintain;
 
     // 分级信息
     private String C_LevelInfo;
 
     // 是否有效
-    private String N_IsValid;
+    private String C_IsValid;
 
     // 显示顺序
-    private String N_Order;
+    private String C_Order;
 
     // 代码简拼
     private String C_Dmjp;
@@ -52,12 +52,12 @@ public class Code implements Serializable {
         C_Name = c_Name;
     }
 
-    public String getN_IsMaintain() {
-        return N_IsMaintain;
+    public String getC_IsMaintain() {
+        return C_IsMaintain;
     }
 
-    public void setN_IsMaintain(String n_IsMaintain) {
-        N_IsMaintain = n_IsMaintain;
+    public void setC_IsMaintain(String c_IsMaintain) {
+        C_IsMaintain = c_IsMaintain;
     }
 
     public String getC_LevelInfo() {
@@ -68,20 +68,20 @@ public class Code implements Serializable {
         C_LevelInfo = c_LevelInfo;
     }
 
-    public String getN_IsValid() {
-        return N_IsValid;
+    public String getC_IsValid() {
+        return C_IsValid;
     }
 
-    public void setN_IsValid(String n_IsValid) {
-        N_IsValid = n_IsValid;
+    public void setC_IsValid(String c_IsValid) {
+        C_IsValid = c_IsValid;
     }
 
-    public String getN_Order() {
-        return N_Order;
+    public String getC_Order() {
+        return C_Order;
     }
 
-    public void setN_Order(String n_Order) {
-        N_Order = n_Order;
+    public void setC_Order(String c_Order) {
+        C_Order = c_Order;
     }
 
     public String getC_Dmjp() {
