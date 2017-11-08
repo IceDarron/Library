@@ -25,10 +25,10 @@ create table library.L_DAR_Code
     C_PID                varchar(50)     default '0'          NOT NULL     comment '代码类型编号',
     C_Code               varchar(50)                          NOT NULL     comment '代码',
     C_Name               varchar(300)                         NOT NULL     comment '代码名称',
-    N_IsMaintain                varchar(32)       default '1'          NOT NULL     comment '可否维护',
+    C_IsMaintain         varchar(32)       default '1'          NOT NULL     comment '可否维护',
     C_LevelInfo          varchar(300)                         NULL         comment '分级信息',
-    N_IsValid              varchar(32)          default '1'          NOT NULL     comment '是否有效',
-    N_Order              varchar(32)        default '1'          NOT NULL     comment '显示顺序',
+    C_IsValid            varchar(32)          default '1'          NOT NULL     comment '是否有效',
+    C_Order              varchar(32)        default '1'          NOT NULL     comment '显示顺序',
     C_Dmjp               varchar(300)                         NULL         comment '代码简拼',
 constraint PK_Aty_Code primary key( C_PID,C_Code )
 ) comment = '代码表' ;
