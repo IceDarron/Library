@@ -122,3 +122,7 @@ contextConfigLocation classpath:config/application-top.xml
 
 classpath:properties/redis.properties classpath:properties/jdbc.properties
 3.每个连接池的配置方式无特殊，需要注意的是参数标识的写法，调用的连接池参数类正确，自动扫描包下带有注解的类，通过spring加载类。 对应的实体类需要通过注释标注，如Controller，Service， Repository
+
+关于mysql中count问题
+
+由于count返回的数据在java代码中为Long型，不便于转换，所以sql中可以增加case函数用于类型转换
