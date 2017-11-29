@@ -1,6 +1,7 @@
 package com.iceDarron.data.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import com.iceDarron.data.po.Book;
 import org.springframework.stereotype.Repository;
@@ -40,4 +41,9 @@ public interface IBookDao {
 	 * @return 返回booklist
 	 */
 	public List<Book> getBookByCondition(Book book);
+
+	/**
+	 * 统计各类书籍数量
+	 */
+	public List<Map<String, String>> getClassifyNums();
 }

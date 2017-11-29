@@ -28,6 +28,10 @@ public class Code implements Serializable {
     // 代码简拼
     private String C_Dmjp;
 
+    // 扩展属性
+    // 类型数量
+    private String number;
+
     public String getC_PID() {
         return C_PID;
     }
@@ -90,5 +94,13 @@ public class Code implements Serializable {
 
     public void setC_Dmjp(String c_Dmjp) {
         C_Dmjp = c_Dmjp;
+    }
+
+    public String getNumber() {
+        return number;
+    }
+
+    public void setNumber(String number) {
+        this.number = number;
     }
 }

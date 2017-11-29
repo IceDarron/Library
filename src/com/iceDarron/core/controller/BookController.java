@@ -1,16 +1,13 @@
 package com.iceDarron.core.controller;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.UUID;
+import java.util.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.iceDarron.core.distribute.WebAPI;
-import com.iceDarron.data.cache.RedisManger;
-import com.iceDarron.data.dao.ICodeDao;
+import com.iceDarron.core.service.ICodeService;
 import com.iceDarron.data.po.Code;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -26,7 +23,6 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.iceDarron.core.service.IBookService;
 import com.iceDarron.data.po.Book;
-import redis.clients.jedis.Jedis;
 
 /**
  * @author IceDarron
@@ -42,10 +38,7 @@ public class BookController {
     private IBookService bookService;
 
     @Autowired
-    private RedisManger redisManger;
-
-    @Autowired
-    private ICodeDao iCodeDao;
+    private ICodeService codeService;
 
     /**
      * 获取所有书籍
@@ -137,7 +130,6 @@ public class BookController {
 
         // 查询符合条件的所有书籍
         List<Book> listBook = this.bookService.getBookByCondition(book);
-
         response.setCharacterEncoding("utf-8");
         logger.info("获取符合条件书籍信息");
         return JSON.toJSONString(listBook);
@@ -151,8 +143,22 @@ public class BookController {
     public String getBookCategory(HttpServletRequest request,
                                   HttpServletResponse response, Model model) {
         response.setCharacterEncoding("utf-8");
+        List<Code> codeList = codeService.getByPid("20000");
+        List<Map<String, String>> list = bookService.getClassifyNums();
+        Map<String, String> map = new HashMap<String, String>();
+
+        Map<String, String> temp = null;
+        for (int i = 0, index = list.size(); i < index; i++) {
+            temp = (Map) list.get(i);
+            map.put(temp.get("CODE"), temp.get("NUMBER").toString());
+        }
+        for (Code code : codeList) {
+            String s = code.getC_Code();
+            String ss =  map.get(s);
+            code.setNumber(ss);
+        }
+
         logger.info("获取所有分类及分类下书籍数量");
-        List<Code> list = iCodeDao.getByPid("20000");
-        return JSON.toJSONString(list);
+        return JSON.toJSONString(codeList);
     }
 }

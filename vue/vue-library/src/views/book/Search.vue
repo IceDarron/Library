@@ -2,6 +2,7 @@
   <div title="图书收藏">
       <div class="top">图书收藏</div>
       <button @click="getBookAll()">获取所有书籍</button>
+      <button @click="getBookClassification()">获取所有书籍分类</button>
       <button @click="addBook()">新增书籍</button>
       <div class="search">
           <div>书籍名称： <input v-model="c_BOOKNAME" /></div>
@@ -10,10 +11,19 @@
           <div>分类：<input v-model="c_CATEGORY" /></div>
       </div>
       <button @click="getBookByCondition()">搜索书籍</button>
-
-
       <div class="body">
-          <div class="row" v-for="(item, i) in books">
+
+          <div class="book-classify" v-for="(item, i) in bookClassifys">
+            <div class="col">
+              <div class="inline">类型名称：
+                <span>{{item.c_Name}}</span>
+              </div>
+            </div>
+          </div>
+
+
+
+          <div class="book-show" v-for="(item, i) in books">
               <!-- 0 -->
               <!-- <div class="col">主键：<span>{{item.c_ID}}</span></div> -->
               <!-- 1 -->
@@ -145,6 +155,7 @@
     data () {
       return {
         books: [],
+        bookClassifys: [],
         isA: -1
       }
     },
@@ -211,6 +222,16 @@
         .catch(function (error) {
           console.log(error)
         })
+      },
+      getBookClassification () {
+        axios.get('/Library/getBookClassification')
+        .then((response) => {
+          console.log(response.data)
+          this.bookClassifys = JSON.parse(response.data)
+        })
+        .catch((error) => {
+          console.log(error)
+        })
       }
     },
     computed: {
@@ -242,12 +263,11 @@
     z-index: 100;
 }
 
-.row {
+.book-show {
   margin: 20px;
   width: 500px;
   height: 300px;
   position: relative;
-  float:left;
 }
 
 .col {

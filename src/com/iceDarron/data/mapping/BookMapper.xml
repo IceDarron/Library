@@ -120,4 +120,15 @@
             </if>
         </where>
     </select>
+
+    <select id="getClassifyNums" resultType="java.util.Map">
+        SELECT
+        c_category AS CODE,
+        COUNT(c_category) AS NUMBER
+        FROM
+        l_dar_books
+        GROUP BY
+        c_category
+    </select>
+
 </mapper>

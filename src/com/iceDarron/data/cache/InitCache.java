@@ -37,8 +37,8 @@ public class InitCache extends HttpServlet {
         WebApplicationContextUtils.getWebApplicationContext(getServletContext()).getAutowireCapableBeanFactory().autowireBean(this);
 
         // 具体加载类
-        initCodeType();
-        initCode();
+//        initCodeType();
+//        initCode();
 
 
     }
