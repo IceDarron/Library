@@ -19,6 +19,11 @@
                 <span>{{item.c_Name}}</span>
               </div>
             </div>
+            <div class="col">
+              <div class="inline">数量：
+                <span>{{item.number}}</span>
+              </div>
+            </div>
           </div>
 
 

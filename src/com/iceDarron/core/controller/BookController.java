@@ -150,12 +150,12 @@ public class BookController {
         Map<String, String> temp = null;
         for (int i = 0, index = list.size(); i < index; i++) {
             temp = (Map) list.get(i);
-            map.put(temp.get("CODE"), temp.get("NUMBER").toString());
+            map.put(temp.get("CODE"), temp.get("NUMBER"));
         }
+        String number = "0";
         for (Code code : codeList) {
-            String s = code.getC_Code();
-            String ss =  map.get(s);
-            code.setNumber(ss);
+            number = map.get(code.getC_Code());
+            code.setNumber(number == null ? "0" : number);
         }
 
         logger.info("获取所有分类及分类下书籍数量");

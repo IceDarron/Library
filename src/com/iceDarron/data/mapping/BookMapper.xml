@@ -124,7 +124,7 @@
     <select id="getClassifyNums" resultType="java.util.Map">
         SELECT
         c_category AS CODE,
-        COUNT(c_category) AS NUMBER
+        CAST(COUNT(c_category) AS CHAR) AS NUMBER
         FROM
         l_dar_books
         GROUP BY
