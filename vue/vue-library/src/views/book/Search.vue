@@ -8,13 +8,12 @@
           <div>书籍名称： <input v-model="c_BOOKNAME" /></div>
           <div>作者： <input v-model="c_AUTHOR" /></div>
           <div>出版社：<input v-model="c_PUBLISHER" /></div>
-          <div>分类：<input v-model="c_CATEGORY" /></div>
       </div>
       <button @click="getBookByCondition()">搜索书籍</button>
       <div class="body">
 
           <div class="book-classify" v-for="(item, i) in bookClassifys">
-            <div class="col">
+            <div class="col" @click="getBookByCategory(item)">
               <div class="inline">类型名称：
                 <span>{{item.c_Name}}</span>
               </div>
@@ -233,6 +232,20 @@
         .then((response) => {
           console.log(response.data)
           this.bookClassifys = JSON.parse(response.data)
+        })
+        .catch((error) => {
+          console.log(error)
+        })
+      },
+      getBookByCategory (item) {
+        axios.get('/Library/getBookByCondition', {
+          params: {
+            c_CATEGORY: item.c_Code
+          }
+        })
+        .then((response) => {
+          console.log(response.data)
+          this.books = JSON.parse(response.data)
         })
         .catch((error) => {
           console.log(error)
