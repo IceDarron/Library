@@ -1,22 +1,23 @@
 <template>
   <div title="图书收藏">
     <!-- top  -->
-    <div class="top">图书收藏
-      <button @click="getBookAll()">获取所有书籍</button>
-      <button @click="getBookClassification()">获取所有书籍分类</button>
-      <button @click="addBook()">新增书籍</button>
+    <div class="head">图书收藏</div>
+    <div class="top">
       <div class="search">
           <div>书籍名称： <input v-model="c_BOOKNAME" /></div>
           <div>作者： <input v-model="c_AUTHOR" /></div>
           <div>出版社：<input v-model="c_PUBLISHER" /></div>
       </div>
       <button @click="getBookByCondition()">搜索书籍</button>
-    </div>
+      <button @click="getBookAll()">获取所有书籍</button>
+      <!-- <button @click="getBookClassification()">获取所有书籍分类</button> -->
+     <button @click="addBook()">新增书籍</button>
+   </div>
 
-    <!-- left  -->
+   <!-- left  -->
     <div class="left">
       <div class="book-classify" v-for="(item, i) in bookClassifys">
-        <div class="col" @click="getBookByCategory(item)">
+        <div class="col" @click="getBookByCondition(item)">
           <div class="inline">类型名称：
             <span>{{item.c_Name}}</span>
           </div>
@@ -146,13 +147,16 @@
         <button class="delete" @click="deleteBook(item)">删除</button>
     </div>
     </div>
-    <!-- logo  -->
+    <!-- bottom  -->
     <div class="bottom">IceDarron</div>
   </div>
 </template>
 <script>
   import axios from 'axios'
   export default {
+    created () {
+      this.getBookClassification()
+    },
     props: {
       c_BOOKNAME: '',
       c_AUTHOR: '',
@@ -168,13 +172,13 @@
       }
     },
     methods: {
-      getBookByCondition () {
+      getBookByCondition (item) {
         axios.get('/Library/getBookByCondition', {
           params: {
             c_BOOKNAME: this.c_BOOKNAME,
             c_AUTHOR: this.c_AUTHOR,
             c_PUBLISHER: this.c_PUBLISHER,
-            c_CATEGORY: this.c_CATEGORY
+            c_CATEGORY: this.c_CATEGORY || item.c_Code
           }
         })
         .then((response) => {
@@ -236,20 +240,6 @@
         .then((response) => {
           console.log(response.data)
           this.bookClassifys = JSON.parse(response.data)
-        })
-        .catch((error) => {
-          console.log(error)
-        })
-      },
-      getBookByCategory (item) {
-        axios.get('/Library/getBookByCondition', {
-          params: {
-            c_CATEGORY: item.c_Code
-          }
-        })
-        .then((response) => {
-          console.log(response.data)
-          this.books = JSON.parse(response.data)
         })
         .catch((error) => {
           console.log(error)
