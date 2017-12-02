@@ -8,7 +8,7 @@
           <div>作者： <input v-model="c_AUTHOR" /></div>
           <div>出版社：<input v-model="c_PUBLISHER" /></div>
       </div>
-      <button @click="getBookByCondition()">搜索书籍</button>
+      <button @click="getBookByCondition(0)">搜索书籍</button>
       <button @click="getBookAll()">获取所有书籍</button>
       <!-- <button @click="getBookClassification()">获取所有书籍分类</button> -->
      <button @click="addBook()">新增书籍</button>
