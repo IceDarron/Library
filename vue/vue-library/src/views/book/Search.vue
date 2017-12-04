@@ -1,12 +1,12 @@
 <template>
   <div title="图书收藏">
     <!-- top  -->
-    <div class="head">图书收藏</div>
     <div class="top">
+      <div class="head">图书收藏</div>
       <div class="search">
-          <div>书籍名称： <input v-model="c_BOOKNAME" /></div>
-          <div>作者： <input v-model="c_AUTHOR" /></div>
-          <div>出版社：<input v-model="c_PUBLISHER" /></div>
+          <div class="search-1">书籍名称： <input v-model="c_BOOKNAME" /></div>
+          <div class="search-1">作者： <input v-model="c_AUTHOR" /></div>
+          <div class="search-1">出版社：<input v-model="c_PUBLISHER" /></div>
       </div>
       <button @click="getBookByCondition(0)">搜索书籍</button>
       <button @click="getBookAll()">获取所有书籍</button>
@@ -251,27 +251,46 @@
   }
 </script>
 <style>
+.head {
+  z-index: 100;
+  float: left;
+  color: #FFFFFF;
+}
+
 .top {
-    width: 100%;
-    height:20%;
-    z-index: 100;
-    float: left;
-}
-
-.left {
-  width: 20%;
+  width: 100%;
+  height:20%;
   z-index: 100;
   float: left;
-}
-
-.right {
-  width: 80%;
-  z-index: 100;
-  float: left;
+  border-bottom: 1px solid #000000;
+  background-color: #2c3039;
+  color: #FFFFFF;
 }
 
 .search {
-    margin: 10px;
+  margin: 10px;
+}
+
+.search-1 {
+  margin: 10px;
+  float: left;
+}
+
+.left {
+  margin-top: 20px;
+  width: 20%;
+  height: 100%;
+  z-index: 100;
+  float: left;
+  border-right: 1px solid #000000;
+}
+
+.right {
+  margin-top: 20px;
+  width: 70%;
+  height: 100%;
+  z-index: 100;
+  float: left;
 }
 
 .bottom {
@@ -282,10 +301,10 @@
 }
 
 .book-show {
-  margin: 20px;
   width: 500px;
   height: 300px;
   position: relative;
+  border: 1px solid #000000;
 }
 
 .col {
