@@ -11,20 +11,18 @@
       <button @click="getBookByCondition(0)">搜索书籍</button>
       <button @click="getBookAll()">获取所有书籍</button>
       <!-- <button @click="getBookClassification()">获取所有书籍分类</button> -->
-     <button @click="addBook()">新增书籍</button>
-   </div>
-
-   <!-- left  -->
+      <button @click="addBook()">新增书籍</button>
+    </div>
+    <!-- left  -->
     <div class="left">
-      <div class="book-classify" v-for="(item, i) in bookClassifys">
-        <div class="col" @click="getBookByCondition(item)">
-          <div class="inline">类型名称：
-            <span>{{item.c_Name}}</span>
-          </div>
-        </div>
-        <div class="col">
-          <div class="inline">数量：
-            <span>{{item.number}}</span>
+      <div class="Classification">
+        <div>分类及其数量：</div>
+        <div class="book-classify" v-for="(item, i) in bookClassifys">
+          <div class="col" @click="getBookByCondition(item)">
+            <div class="inline">
+              <span>{{item.c_Name}}</span>
+              <span>{{item.number}}</span>
+            </div>
           </div>
         </div>
       </div>
