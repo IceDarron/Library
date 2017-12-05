@@ -28,7 +28,7 @@
     </div>
     <!-- right  -->
     <div class="right">
-     <div class="book-show" v-for="(item, i) in books">
+      <div class="book-show" v-for="(item, i) in books">
         <!-- 0 -->
         <!-- <div class="book-show-col">主键：<span>{{item.c_ID}}</span></div> -->
         <!-- 1 -->
@@ -142,7 +142,7 @@
           </div>
         </div>
         <button class="delete" @click="deleteBook(item)">删除</button>
-    </div>
+      </div>
     </div>
     <!-- bottom  -->
     <div class="bottom">IceDarron</div>
@@ -304,17 +304,19 @@
   z-index: 100;
 }
 
-.book-show {
-  width: 500px;
-  height: 300px;
-  position: relative;
-}
 
 .right {
   width: 85%;
   height: 100%;
   z-index: 100;
   float: left;
+  margin-top: 20px;
+}
+
+.book-show {
+  width: 100%;
+  height: 300px;
+  border-bottom: groove 1px;
 }
 
 .book-show-col {
