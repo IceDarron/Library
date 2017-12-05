@@ -16,9 +16,8 @@
     <!-- left  -->
     <div class="left">
       <div class="Classification">
-        <div>分类及其数量：</div>
         <div class="book-classify" v-for="(item, i) in bookClassifys">
-          <div class="col" @click="getBookByCondition(item)">
+          <div class="book-classify-col" @click="getBookByCondition(item)">
             <div class="inline">
               <span>{{item.c_Name}}</span>
               <span>{{item.number}}</span>
@@ -255,6 +254,7 @@
   z-index: 100;
   float: left;
   color: #FFFFFF;
+  margin: 10px;
 }
 
 .top {
@@ -268,43 +268,52 @@
 }
 
 .search {
-  margin: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 100px;
 }
 
 .search-1 {
-  margin: 10px;
   float: left;
+  margin-left: 10px;
 }
 
 .left {
-  margin-top: 20px;
-  width: 20%;
+  width: 15%;
   height: 100%;
   z-index: 100;
   float: left;
-  border-right: 1px solid #000000;
+  display: block;
+  background-color: #4c5566;
+  color: #c4c9d3;
+}
+
+.Classification {
+  margin-top: 20px;
+}
+
+.book-classify-col {
+  height: 50px;
 }
 
 .right {
-  margin-top: 20px;
-  width: 70%;
+  width: 85%;
   height: 100%;
   z-index: 100;
   float: left;
 }
 
 .bottom {
-    position: fixed;
-    bottom: 10px;
-    width: 100%;
-    z-index: 100;
+  position: fixed;
+  bottom: 10px;
+  width: 100%;
+  z-index: 100;
 }
 
 .book-show {
   width: 500px;
   height: 300px;
   position: relative;
-  border: 1px solid #000000;
 }
 
 .col {
