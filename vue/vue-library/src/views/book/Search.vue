@@ -30,11 +30,11 @@
     <div class="right">
      <div class="book-show" v-for="(item, i) in books">
         <!-- 0 -->
-        <!-- <div class="col">主键：<span>{{item.c_ID}}</span></div> -->
+        <!-- <div class="book-show-col">主键：<span>{{item.c_ID}}</span></div> -->
         <!-- 1 -->
-        <!-- <div class="col">书编码：<span>{{item.c_BOOKID}}</span></div> -->
+        <!-- <div class="book-show-col">书编码：<span>{{item.c_BOOKID}}</span></div> -->
         <!-- 2 -->
-        <div class="col">
+        <div class="book-show-col">
           <div class="inline" @click="editBook(i + '-' + 2, item)" >书籍名称：
             <span v-show="isA !== (i + '-' + 2)">{{item.c_BOOKNAME}}</span>
           </div>
@@ -43,7 +43,7 @@
           </div>
         </div>
         <!-- 3 -->
-        <div class="col">
+        <div class="book-show-col">
           <div class="inline"  @click="editBook(i + '-' + 3, item)">作者：
             <span v-show="isA !== (i + '-' + 3)">{{item.c_AUTHOR}}</span>
           </div>
@@ -52,7 +52,7 @@
           </div>
         </div>
         <!-- 4 -->
-        <div class="col">
+        <div class="book-show-col">
           <div class="inline"  @click="editBook(i + '-' + 4, item)">编辑者：
             <span v-show="isA !== (i + '-' + 4)">{{item.c_EDITOR}}</span>
           </div>
@@ -61,7 +61,7 @@
           </div>
         </div>
         <!-- 5 -->
-        <div class="col">
+        <div class="book-show-col">
           <div class="inline" @click="editBook(i + '-' + 5, item)">翻译者：
             <span v-show="isA !== (i + '-' + 5)">{{item.c_TRANSLATOR}}</span>
           </div>
@@ -70,7 +70,7 @@
           </div>
         </div>
         <!-- 6 -->
-        <div class="col">
+        <div class="book-show-col">
           <div class="inline" @click="editBook(i + '-' + 6, item)">出版社：
             <span v-show="isA !== (i + '-' + 6)">{{item.c_PUBLISHER}}</span>
           </div>
@@ -79,7 +79,7 @@
           </div>
         </div>
         <!-- 7 -->
-        <div class="col">
+        <div class="book-show-col">
           <div class="inline" @click="editBook(i + '-' + 7, item)">出版年：
             <span v-show="isA !== (i + '-' + 7)">{{item.d_PUBLICATIONYEAR}}</span>
           </div>
@@ -88,7 +88,7 @@
           </div>
         </div>
         <!-- 8 -->
-        <div class="col">
+        <div class="book-show-col">
           <div class="inline" @click="editBook(i + '-' + 8, item)">版本：
             <span v-show="isA !== (i + '-' + 8)">{{item.n_VERSION}}</span>
           </div>
@@ -97,7 +97,7 @@
           </div>
         </div>
         <!-- 9 -->
-        <div class="col">
+        <div class="book-show-col">
           <div class="inline" @click="editBook(i + '-' + 9, item)">第几次印刷：
             <span v-show="isA !== (i + '-' + 9)">{{item.n_PRINTTIMES}}</span>
           </div>
@@ -106,7 +106,7 @@
           </div>
         </div>
         <!-- 10 -->
-        <div class="col">
+        <div class="book-show-col">
           <div class="inline" @click="editBook(i + '-' + 10, item)">印刷数：
             <span v-show="isA !== (i + '-' + 10)">{{item.n_PRINTNUMBER}}</span>
           </div>
@@ -115,7 +115,7 @@
           </div>
         </div>
         <!-- 11 -->
-        <div class="col">
+        <div class="book-show-col">
           <div class="inline" @click="editBook(i + '-' + 11, item)">价格：
             <span v-show="isA !== (i + '-' + 11)">{{item.n_PRICE}}</span>
           </div>
@@ -124,7 +124,7 @@
           </div>
         </div>
         <!-- 12 -->
-        <div class="col">
+        <div class="book-show-col">
           <div class="inline" @click="editBook(i + '-' + 12, item)">分类：
             <span v-show="isA !== (i + '-' + 12)">{{item.c_CATEGORY}}</span>
           </div>
@@ -133,7 +133,7 @@
           </div>
         </div>
         <!-- 13 -->
-        <div class="col">
+        <div class="book-show-col">
           <div class="inline" @click="editBook(i + '-' + 13, item)">描述：
             <span v-show="isA !== (i + '-' + 13)">{{item.c_DESCRIPTION}}</span>
           </div>
@@ -279,6 +279,7 @@
 }
 
 .left {
+  min-height: 1080px;
   width: 15%;
   height: 100%;
   z-index: 100;
@@ -296,13 +297,6 @@
   height: 50px;
 }
 
-.right {
-  width: 85%;
-  height: 100%;
-  z-index: 100;
-  float: left;
-}
-
 .bottom {
   position: fixed;
   bottom: 10px;
@@ -316,8 +310,14 @@
   position: relative;
 }
 
-.col {
+.right {
+  width: 85%;
+  height: 100%;
+  z-index: 100;
+  float: left;
+}
 
+.book-show-col {
 }
 
 .inline {
