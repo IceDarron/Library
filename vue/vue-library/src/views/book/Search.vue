@@ -18,7 +18,7 @@
       <div class="Classification">
         <div class="book-classify" v-for="(item, i) in bookClassifys">
           <div class="book-classify-col" @click="getBookByCondition(item)">
-            <div class="inline">
+            <div>
               <span>{{item.c_Name}}</span>
               <span>{{item.number}}</span>
             </div>
@@ -29,6 +29,7 @@
     <!-- right  -->
     <div class="right">
       <div class="book-show" v-for="(item, i) in books">
+        <img class="testImg" :src="testImg">
         <!-- 0 -->
         <!-- <div class="book-show-col">主键：<span>{{item.c_ID}}</span></div> -->
         <!-- 1 -->
@@ -138,7 +139,7 @@
             <span v-show="isA !== (i + '-' + 13)">{{item.c_DESCRIPTION}}</span>
           </div>
           <div class="inline">
-            <input v-model="item.c_DESCRIPTION" v-show="isA === (i + '-' + 13)">
+            <input v-model="item.c_DESCRIPTION" v-show="isA === (i + '-' + 13)" />
           </div>
         </div>
         <button class="delete" @click="deleteBook(item)">删除</button>
@@ -149,6 +150,7 @@
   </div>
 </template>
 <script>
+  import testImg from '../../assets/logo.png'
   import axios from 'axios'
   export default {
     created () {
@@ -165,7 +167,8 @@
       return {
         books: [],
         bookClassifys: [],
-        isA: -1
+        isA: -1,
+        testImg: testImg
       }
     },
     methods: {
@@ -310,24 +313,32 @@
   height: 100%;
   z-index: 100;
   float: left;
-  margin-top: 20px;
 }
 
 .book-show {
+  margin-top: 20px;
+  display:inline-block;
   width: 100%;
   height: 300px;
   border-bottom: groove 1px;
 }
 
 .book-show-col {
+  text-align: left!important;
+  margin-left: 400px;
+}
+
+.delete {
+  float: right;
+  margin-right: 20px;
 }
 
 .inline {
   display:inline;
 }
 
-.delete {
-  position: relative;;
-  left: -60px;
+.testImg {
+  float: left;
+  margin-left: 20px;
 }
 </style>
