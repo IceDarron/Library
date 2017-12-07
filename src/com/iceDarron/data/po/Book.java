@@ -1,8 +1,10 @@
 package com.iceDarron.data.po;
 
+import com.iceDarron.data.po.interf.Page;
+
 import java.sql.Timestamp;
 
-public class Book {
+public class Book extends Page {
 
     // 主键
     private String C_ID;
