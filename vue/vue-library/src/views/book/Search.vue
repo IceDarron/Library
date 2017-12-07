@@ -168,6 +168,8 @@
         books: [],
         bookClassifys: [],
         isA: -1,
+        pageSize: '10',
+        pageNo: '1',
         testImg: testImg
       }
     },
@@ -178,7 +180,9 @@
             c_BOOKNAME: this.c_BOOKNAME,
             c_AUTHOR: this.c_AUTHOR,
             c_PUBLISHER: this.c_PUBLISHER,
-            c_CATEGORY: this.c_CATEGORY || item.c_Code
+            c_CATEGORY: this.c_CATEGORY || item.c_Code,
+            pageSize: this.pageSize,
+            pageNo: this.pageNo
           }
         })
         .then((response) => {
@@ -190,7 +194,12 @@
         })
       },
       getBookAll () {
-        axios.get('/Library/book')
+        axios.get('/Library/book', {
+          params: {
+            pageSize: this.pageSize,
+            pageNo: this.pageNo
+          }
+        })
         .then((response) => {
           console.log(response.data)
           this.books = JSON.parse(response.data)
