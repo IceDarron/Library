@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.iceDarron.data.dao.IBookDao">
-    <resultMap id="BaseResultMap" type="com.iceDarron.data.po.Book">
+    <resultMap id="BaseResultMap" type="com.iceDarron.data.po.Book" extends="Page">
         <id column="C_ID" property="C_ID" jdbcType="VARCHAR"/>
         <result column="C_BOOKID" property="C_BOOKID" jdbcType="VARCHAR"/>
         <result column="C_BOOKNAME" property="C_BOOKNAME" jdbcType="VARCHAR"/>
@@ -20,6 +20,12 @@
         <result column="C_DESCRIPTION" property="C_DESCRIPTION"
                 jdbcType="VARCHAR"/>
     </resultMap>
+
+    <resultMap id="Page" type="com.iceDarron.data.po.interf.Page">
+        <result property="pageNo" column="pageNo" jdbcType="VARCHAR"/>
+        <result property="pageSize" column="pageSize" jdbcType="VARCHAR"/>
+    </resultMap>
+
     <sql id="Base_Column_List">
         C_ID, C_BOOKID, C_BOOKNAME, C_AUTHOR, C_EDITOR,
               C_TRANSLATOR, C_PUBLISHER,
@@ -117,6 +123,9 @@
             </if>
             <if test="c_CATEGORY != null and c_CATEGORY != ''">
                 AND c_CATEGORY LIKE CONCAT('%',#{c_CATEGORY},'%')
+            </if>
+            <if test="pageNo != null and pageSize != null">
+                limit #{pageNo}, #{pageSize}
             </if>
         </where>
     </select>
