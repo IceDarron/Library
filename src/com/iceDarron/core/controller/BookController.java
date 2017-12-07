@@ -47,7 +47,16 @@ public class BookController {
     @ResponseBody
     public String getBookAll(HttpServletRequest request,
                              HttpServletResponse response, Model model) {
-        List<Book> bookList = this.bookService.getBookAll();
+        int pageSize = Integer.parseInt(request.getParameter("pageSize"));
+        int pageNo = Integer.parseInt(request.getParameter("pageNo"));
+
+//        List<Book> bookList = this.bookService.getBookAll();
+        Book book = new Book();
+        book.setPageNo((pageNo - 1) * pageSize);
+        book.setPageSize(pageSize);
+
+        // 查询符合条件的所有书籍
+        List<Book> bookList = this.bookService.getBookByCondition(book);
         response.setCharacterEncoding("utf-8");
         logger.info("获取所有书籍信息");
         return JSON.toJSONString(bookList);
@@ -121,12 +130,16 @@ public class BookController {
         String c_AUTHOR = request.getParameter("c_AUTHOR");
         String c_PUBLISHER = request.getParameter("c_PUBLISHER");
         String c_CATEGORY = request.getParameter("c_CATEGORY");
+        int pageSize = Integer.parseInt(request.getParameter("pageSize"));
+        int pageNo = Integer.parseInt(request.getParameter("pageNo"));
 
         Book book = new Book();
         book.setC_BOOKNAME(c_BOOKNAME);
         book.setC_AUTHOR(c_AUTHOR);
         book.setC_PUBLISHER(c_PUBLISHER);
         book.setC_CATEGORY(c_CATEGORY);
+        book.setPageNo((pageNo - 1) * pageSize);
+        book.setPageSize(pageSize);
 
         // 查询符合条件的所有书籍
         List<Book> listBook = this.bookService.getBookByCondition(book);
