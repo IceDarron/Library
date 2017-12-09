@@ -270,8 +270,9 @@
 }
 
 .top {
+  position: fixed;
   width: 100%;
-  height:20%;
+  height: 48px;
   z-index: 100;
   float: left;
   border-bottom: 1px solid #000000;
@@ -291,8 +292,10 @@
 }
 
 .left {
+  position: fixed;
+  top: 48px;
   min-height: 1080px;
-  width: 15%;
+  width: 200px;
   height: 100%;
   z-index: 100;
   float: left;
@@ -318,9 +321,12 @@
 
 
 .right {
+  position: relative;
+  top: 48px;
+  left: 200px;
   width: 85%;
   height: 100%;
-  z-index: 100;
+  z-index: 10;
   float: left;
 }
 
