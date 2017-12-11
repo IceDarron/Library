@@ -144,9 +144,13 @@
         </div>
         <button class="delete" @click="deleteBook(item)">删除</button>
       </div>
+      <div class="page">
+        <div class="prePage">上一页</div>
+        <div class="nextPage">下一页</div>
+      </div>
     </div>
     <!-- bottom  -->
-    <div class="bottom">IceDarron</div>
+    <!--<div class="bottom">IceDarron</div>-->
   </div>
 </template>
 <script>
@@ -355,5 +359,18 @@
 .testImg {
   float: left;
   margin-left: 20px;
+}
+
+.page {
+  margin:20px auto;
+  width: 10%;
+}
+
+.prePage {
+  float: left;
+}
+
+.nextPage {
+  float: right;
 }
 </style>
