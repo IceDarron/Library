@@ -145,8 +145,8 @@
         <button class="delete" @click="deleteBook(item)">删除</button>
       </div>
       <div class="page">
-        <div class="prePage">上一页</div>
-        <div class="nextPage">下一页</div>
+        <div class="prevPage" @click="prevPage(0)" v-show="prevPageView">上一页</div>
+        <div class="nextPage" @click="nextPage(0)" v-show="nextPageView">下一页</div>
       </div>
     </div>
     <!-- bottom  -->
@@ -169,22 +169,27 @@
     name: 'show',
     data () {
       return {
+        prevPageView: false,
+        nextPageView: false,
         books: [],
         bookClassifys: [],
         isA: -1,
-        pageSize: '10',
+        pageSize: '20',
         pageNo: '1',
+        total: '0',
+        pages: '0',
         testImg: testImg
       }
     },
     methods: {
       getBookByCondition (item) {
+        this.c_CATEGORY = item.c_Code || item
         axios.get('/Library/getBookByCondition', {
           params: {
             c_BOOKNAME: this.c_BOOKNAME,
             c_AUTHOR: this.c_AUTHOR,
             c_PUBLISHER: this.c_PUBLISHER,
-            c_CATEGORY: this.c_CATEGORY || item.c_Code,
+            c_CATEGORY: this.c_CATEGORY,
             pageSize: this.pageSize,
             pageNo: this.pageNo
           }
@@ -192,6 +197,10 @@
         .then((response) => {
           console.log(response.data)
           this.books = JSON.parse(response.data)
+          this.$nextTick(function () {
+            this.prevPageView = true
+            this.nextPageView = true
+          })
         })
         .catch((error) => {
           console.log(error)
@@ -257,6 +266,49 @@
         .catch((error) => {
           console.log(error)
         })
+      },
+      prevPage (item) {
+        if (Number(this.pageNo) !== 1) {
+          this.pageNo = Number(this.pageNo) - 1
+        } else {
+        }
+        axios.get('/Library/getBookByCondition', {
+          params: {
+            c_BOOKNAME: this.c_BOOKNAME,
+            c_AUTHOR: this.c_AUTHOR,
+            c_PUBLISHER: this.c_PUBLISHER,
+            c_CATEGORY: this.c_CATEGORY || item,
+            pageSize: this.pageSize,
+            pageNo: this.pageNo
+          }
+        })
+        .then((response) => {
+          console.log(response.data)
+          this.books = JSON.parse(response.data)
+        })
+        .catch((error) => {
+          console.log(error)
+        })
+      },
+      nextPage (item) {
+        this.pageNo = Number(this.pageNo) + 1
+        axios.get('/Library/getBookByCondition', {
+          params: {
+            c_BOOKNAME: this.c_BOOKNAME,
+            c_AUTHOR: this.c_AUTHOR,
+            c_PUBLISHER: this.c_PUBLISHER,
+            c_CATEGORY: this.c_CATEGORY || item,
+            pageSize: this.pageSize,
+            pageNo: this.pageNo
+          }
+        })
+        .then((response) => {
+          console.log(response.data)
+          this.books = JSON.parse(response.data)
+        })
+        .catch((error) => {
+          console.log(error)
+        })
       }
     },
     computed: {
@@ -275,6 +327,7 @@
 
 .top {
   position: fixed;
+  top: 0px;
   width: 100%;
   height: 48px;
   z-index: 100;
@@ -297,8 +350,8 @@
 
 .left {
   position: fixed;
+  left: 0px;
   top: 48px;
-  min-height: 1080px;
   width: 200px;
   height: 100%;
   z-index: 100;
@@ -316,35 +369,34 @@
   height: 50px;
 }
 
-.bottom {
-  position: fixed;
-  bottom: 10px;
-  width: 100%;
-  z-index: 100;
-}
-
+/*.bottom {*/
+  /*position: fixed;*/
+  /*bottom: 10px;*/
+  /*width: 100%;*/
+  /*z-index: 100;*/
+/*}*/
 
 .right {
   position: relative;
-  top: 48px;
   left: 200px;
-  width: 85%;
+  top: 48px;
+  width: calc(100% - 200px);
   height: 100%;
   z-index: 10;
-  float: left;
+  display: block;
 }
 
 .book-show {
-  margin-top: 20px;
+  margin: 20px;
   display:inline-block;
-  width: 100%;
+  width: 45%;
   height: 300px;
   border-bottom: groove 1px;
 }
 
 .book-show-col {
   text-align: left!important;
-  margin-left: 400px;
+  margin-left: 300px;
 }
 
 .delete {
@@ -366,7 +418,7 @@
   width: 10%;
 }
 
-.prePage {
+.prevPage {
   float: left;
 }
 
