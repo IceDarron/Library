@@ -57,7 +57,6 @@ public class BookController {
 
         // 查询符合条件的所有书籍
         List<Book> bookList = this.bookService.getBookByCondition(book);
-        response.setCharacterEncoding("utf-8");
         logger.info("获取所有书籍信息");
         return JSON.toJSONString(bookList);
     }
@@ -74,7 +73,6 @@ public class BookController {
         book.setC_ID(UUID.randomUUID().toString().replace("-", ""));
         listBook.add(book);
         int count = this.bookService.addBook(listBook);
-        response.setCharacterEncoding("utf-8");
         logger.info("增加书籍信息" + count);
         return JSON.toJSONString("success");
     }
@@ -96,7 +94,6 @@ public class BookController {
         Book book = JSONObject.parseObject(str, Book.class);
         listBook.add(book);
         int count = this.bookService.updateBook(listBook);
-        response.setCharacterEncoding("utf-8");
         logger.info("更新书籍信息" + count);
         return JSON.toJSONString("success");
     }
@@ -114,7 +111,6 @@ public class BookController {
         book.setC_ID(c_ID);
         listBook.add(book);
         int count = this.bookService.deleteBook(listBook);
-        response.setCharacterEncoding("utf-8");
         logger.info("删除书籍信息" + count);
         return JSON.toJSONString("success");
     }
@@ -143,7 +139,6 @@ public class BookController {
 
         // 查询符合条件的所有书籍
         List<Book> listBook = this.bookService.getBookByCondition(book);
-        response.setCharacterEncoding("utf-8");
         logger.info("获取符合条件书籍信息");
         return JSON.toJSONString(listBook);
     }
